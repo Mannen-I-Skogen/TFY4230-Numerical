@@ -1,0 +1,8 @@
+&PARAMETERS
+partNum = 1,		! number of particles
+dt = 0.005,         ! time step
+LX = 10,            ! box size x direction
+LY = 10,            ! box size y direction
+KK = 100,           ! Strength of repulsive wall force
+EPS = 1            ! Strength of particle particle interaction
+/
