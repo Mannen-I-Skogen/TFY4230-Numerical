@@ -1,9 +1,9 @@
 
 # The compiler
-FC = gfortran -O3 -I#./lapack95#-fopenmp -O3
+FC = gfortran -O3 #-I./lapack95#-fopenmp -O3
 
 # Executable to built
-PROGRAM = program 
+PROGRAM = verlet
 
 # Source files
 SRCS =	common.f95	\

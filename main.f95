@@ -65,7 +65,7 @@ program verlet
 	print *, 'Position:',x, y
 	print *, 'Velocity:',vx, vy
 	print *, 'Acceleration:',ax, ay
-	print *,
+	print *, ''
     history(1,1) = x(1)
     history(2,1) = y(1)
     print *, history(1,1), history(2,1)
