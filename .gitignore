@@ -33,5 +33,5 @@
 
 # Code::Blockes files
 *.cbp
-*.depends
+*.depend
 *.layout
