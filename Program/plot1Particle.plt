@@ -8,7 +8,7 @@ set xlabel 'x'
 set ylabel 'y'
 
 
-plot './data/trajectory_01particles_0040dt.dat' using 1:2 with points pt 6 lc rgb '#000000' title "Trajectory"
+plot './data/trajectory_01particles_0040dt.dat' using 1:2 with points pt 6 lc rgb '#ff0000' title "Trajectory"
 
 set terminal epslatex
 set output "../Report/figures/trajectory_01particles_0040dt.tex"
@@ -22,7 +22,7 @@ set xlabel 'x'
 set ylabel 'y'
 
 
-plot './data/trajectory_01particles_0020dt.dat' using 1:2 with points pt 6 lc rgb '#000000' title "Trajectory"
+plot './data/trajectory_01particles_0020dt.dat' using 1:2 with points pt 6 lc rgb '#ff0000' title "Trajectory"
 
 set terminal epslatex
 set output "../Report/figures/trajectory_01particles_0020dt.tex"
@@ -37,7 +37,7 @@ set xlabel 'x'
 set ylabel 'y'
 
 
-plot './data/trajectory_01particles_0010dt.dat' using 1:2 with points pt 6 lc rgb '#000000' title "Trajectory"
+plot './data/trajectory_01particles_0010dt.dat' using 1:2 with points pt 6 lc rgb '#ff0000' title "Trajectory"
 
 set terminal epslatex
 set output "../Report/figures/trajectory_01particles_0010dt.tex"
@@ -53,7 +53,7 @@ set xlabel 'x'
 set ylabel 'y'
 
 
-plot './data/trajectory_01particles_0005dt.dat' using 1:2 with points pt 6 lc rgb '#000000' title "Trajectory"
+plot './data/trajectory_01particles_0005dt.dat' using 1:2 with points pt 6 lc rgb '#ff0000' title "Trajectory"
 
 set terminal epslatex
 set output "../Report/figures/trajectory_01particles_0005dt.tex"
