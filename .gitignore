@@ -36,4 +36,9 @@
 *.depend
 *.layout
 
+# TeX Files
+*.aux
+*.log
+*.synctex.gz
+
 verlet.py
