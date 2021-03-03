@@ -7,12 +7,12 @@ Module readinput
     !     and assign values to parameters.
     Subroutine read_input_file()
         Implicit none
-        Integer             :: partNum, LX, LY
+        Integer             :: partNum, LX, LY, animate, trace
         Real(wp)            :: dt, KK, EPS
         ! --- List of names to look for in the input file.
         !     These are local variables.
         Namelist / parameters / &
-        partNum, dt, LX, LY, KK, EPS
+        partNum, dt, LX, LY, KK, EPS, animate, trace
 
         ! --- Read the input file and assign corresponding values
         !     to named variables.
@@ -21,6 +21,8 @@ Module readinput
         close(1)
 
         ! --- Assign the values read to the parameters (global variables).
+        param%trace = trace
+        param%animate = animate
         param%partNum = partNum
         param%dt = dt
         param%LX = LX

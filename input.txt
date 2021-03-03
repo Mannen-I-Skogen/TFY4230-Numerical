@@ -1,8 +1,10 @@
 &PARAMETERS
-partNum = 1,		! number of particles
-dt = 0.005,         ! time step
+partNum = 1,        ! number of particles
+dt = 0.04,          ! time step
 LX = 10,            ! box size x direction
 LY = 10,            ! box size y direction
 KK = 100,           ! Strength of repulsive wall force
-EPS = 1            ! Strength of particle particle interaction
+EPS = 1,            ! Strength of particle particle interaction
+trace = 1,          ! Set 1 to get a dat file that plots the trajectory of particle number 1
+animate = 1         ! Set 1 to get a dat file friendly to animation using gnuplot
 /
