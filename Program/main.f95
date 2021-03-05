@@ -8,9 +8,11 @@ program verlet
         implicit none
 
         ! --- Setting variables
-        Integer                         ::  i, j, k, partNum, steps, LX, LY, seed, S
-        Real(wp)                        ::  start, finish, dt, KK, EPS, time, Kinetic, potential, rij, rijsqr, dvdr, aa, EPP, vel
-        Real(wp), allocatable           ::  x(:), y(:), vx(:), vy(:), ax(:), ay(:), history(:,:), test(:), energy(:,:)
+        Integer                         ::  i, j, k, partNum, steps, LX, LY, seed, S, check
+        Real(wp)                        ::  start, finish, dt, KK, EPS, time, Kinetic, potential,&
+                                            rij, rijsqr, dvdr, aa, EPP, vel
+        Real(wp), allocatable           ::  x(:), y(:), vx(:), vy(:), ax(:), ay(:), history(:,:),&
+                                            energy(:,:), kineticPP(:,:)
         character(len=4)                ::  num
         character(len=2)                ::  num2
 
@@ -29,9 +31,11 @@ program verlet
         write(*,*) 'LY: ', param%LY
         write(*,*) 'KK: ', param%KK
         write(*,*) 'EPS: ', param%EPS
+        write(*,*) 'EPP: ', param%EPP
         write(*,*) 'Animate: ', param%animate
         write(*,*) 'Trace: ', param%trace
         write(*,*) 'totE: ', param%totE
+        write(*,*) 'allK: ', param%allK
         write(*,*) 'Constants:'
         write(*,*) 'pi', pi
         partNum = param%partNum
@@ -40,6 +44,7 @@ program verlet
         LY = param%LY
         KK = param%KK
         EPS = param%EPS
+        EPP = param%EPP
         time = param%time
         ! --- Set seed for random
         seed = 2187
@@ -57,7 +62,7 @@ program verlet
         allocate(ay(partNum))
         allocate(history(2*partNum,steps))
         allocate(energy(2,steps))
-        allocate(test(2))
+        allocate(kineticPP(partNum,steps))
 
         ! --- initialize all particles with zeroes
         x(:) = 0
@@ -67,13 +72,13 @@ program verlet
         vx(:) = 0
         vy(:) = 0
         history(:,:) = 0.0
+        kineticPP(:,:) = 0.0
         ! --- initialize particles
-        EPP = 25
         if (partNum == 1) then
-            x(1) = 5
-            y(1) = 5
-            vx(1) = -10
-            vy(1) = 5
+            x(1) = 8
+            y(1) = 8
+            vx(1) = -5
+            vy(1) = 10
         end if
         if (partNum == 2) then
             x(1) = 2
@@ -87,13 +92,45 @@ program verlet
         end if
         if (partNum > 2) then
             do i = 1, partNum
-                x(i) = rand()*10
-                y(i) = rand()*10
+                check = 0
+                do while (check == 0)
+                    x(i) = rand()*LX
+                    y(i) = rand()*LY
+                    check = 1
+                    do j = 1, i-1
+                        rijsqr = sqrt((x(i)-x(j))**2+(y(i)-y(j))**2)
+                        if (rijsqr < 1) then
+                            check = 0
+                        end if
+                    end do
+                end do
                 vel = sqrt(2*EPP)
                 vx(i) = rand()*2*vel-vel
                 vy(i) = (int(rand()*2)*2-1)*sqrt(2*EPP-vx(i)**2)
             end do
         end if
+
+        ! ----------------------
+        ! --- Calibrate Mode ---
+        ! ----------------------
+        if (param%calibrate == 1) then
+            if (partNum == 2) then
+                x(1) = 3
+                y(1) = 3
+                x(2) = 7
+                y(2) = 7
+                vx(1) = 5.6
+                vy(1) = 5.6
+                vx(2) = -5.6
+                vy(2) = -5.6
+            end if
+            open(1, file = './data/initialPos.dat')
+            do i = 1, partNum
+                write(1,*) x(i), y(i)
+            end do
+            close(1)
+        end if
+
         print *, 'Initializing...'
         print *, 'Start values:'
         print *, 'Position:',x, y
@@ -173,9 +210,8 @@ program verlet
             ! --- update the velocities with acceleration at t+dt
             vx(:) = vx(:) + (ax(:)*dt)/2.0
             vy(:) = vy(:) + (ay(:)*dt)/2.0
-            do j = 1, partNum
-                kinetic = kinetic + 0.5*(vx(j)**2+vy(j)**2)
-            end do
+            kineticPP(:,i) = 0.5*(vx(:)**2+vy(:)**2)
+            Kinetic = sum(kineticPP(:,i))
             energy(1,i) = dt*i
             energy(2,i) = (kinetic + potential)/partNum
         end do
@@ -183,7 +219,7 @@ program verlet
         print *, 'test2'
 
         if (param%trace == 1) then
-            open(1, file = './data/trajectory_'//num2//'particles_' //num// 'dt.dat')
+            open(1, file = './data/P_'//num2//'_' //num// '.dat')
             do i = 1, steps
                 write(1,*) history(:,i)
             end do
@@ -191,7 +227,7 @@ program verlet
         end if
 
         if (param%animate == 1) then
-            open(1, file = './data/trajectoryAni_'//num2//'particles_' //num// 'dt.dat')
+            open(1, file = './data/animate.dat')
             do i = 1, steps
                 do j = 1, partNum
                     write(1,*) history(j*2-1,i), history(j*2,i)
@@ -203,12 +239,22 @@ program verlet
         end if
 
         if (param%totE == 1) then
-            open(1, file = './data/energy_'//num2//'particles_'//num//'dt.dat')
+            open(1, file = './data/E_'//num2//'_'//num//'.dat')
             do i = 1, steps
                 write(1,*) energy(1,i), energy(2,i)
             end do
             close(1)
         end if
+
+        if (param%allK == 1) then
+            open(1, file = './data/K_'//num2//'_'//num//'.dat')
+                do i = 1, steps
+                    write(1,*) energy(1,i), kineticPP(:,i)
+                end do
+            close(1)
+        end if
+
+
         ! --- Deallocate all arrays
         deallocate(x)
         deallocate(y)
@@ -217,7 +263,8 @@ program verlet
         deallocate(ax)
         deallocate(ay)
         deallocate(history)
-        deallocate(test)
+        deallocate(energy)
+        deallocate(kineticPP)
         ! --- Get final time
         call cpu_time(finish)
 

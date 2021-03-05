@@ -7,12 +7,14 @@ Module readinput
     !     and assign values to parameters.
     Subroutine read_input_file()
         Implicit none
-        Integer             :: partNum, LX, LY, animate, trace, totE
-        Real(wp)            :: dt, KK, EPS, time
+        Integer             :: partNum, LX, LY, animate,&
+                            trace, totE, allK, calibrate
+        Real(wp)            :: dt, KK, EPS, time, EPP
         ! --- List of names to look for in the input file.
         !     These are local variables.
         Namelist / parameters / &
-        partNum, dt, LX, LY, KK, EPS, animate, trace, time, totE
+        partNum, dt, LX, LY, KK, EPS, EPP, animate,&
+        trace, time, totE, allK, calibrate
 
         ! --- Read the input file and assign corresponding values
         !     to named variables.
@@ -21,6 +23,7 @@ Module readinput
         close(1)
 
         ! --- Assign the values read to the parameters (global variables).
+        param%allK = allK
         param%totE = totE
         param%time = time
         param%trace = trace
@@ -31,6 +34,8 @@ Module readinput
         param%LY = LY
         param%KK = KK
         param%EPS = EPS
+        param%EPP = EPP
+        param%calibrate = calibrate
 
     end subroutine read_input_file
 
