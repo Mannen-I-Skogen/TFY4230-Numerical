@@ -1,12 +1,15 @@
 &PARAMETERS
-partNum = 2,        ! number of particles
-dt = 0.005,          ! time step
+partNum = 60,        ! number of particles
+dt = 0.005,         ! time step
 time = 10.0			! total time
 LX = 10,            ! box size x direction
 LY = 10,            ! box size y direction
-KK = 100,           ! Strength of repulsive wall force
+KK = 500,           ! Strength of repulsive wall force
 EPS = 1,            ! Strength of particle particle interaction
-trace = 1,          ! Set 1 to get a dat file that plots the trajectory of particle number 1
+EPP = 30,           ! Initial energy per particle when using random start locations, no kinetic energy will exceed this value.
+trace = 0,          ! Set 1 to get a dat file that plots the trajectory of particle number 1
 animate = 0,        ! Set 1 to get a dat file friendly to animation using gnuplot
-totE = 1            ! Set 1 to get a dat file with the total energy
+totE = 0,           ! Set 1 to get a dat file with the total energy
+allK = 0,           ! Set 1 to get a dat file with the kinetic energy of all particles individually
+calibrate = 1       ! Set to 1 to be able to manually change the intitial conditions
 /
