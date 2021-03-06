@@ -1,26 +1,6 @@
 clear
 reset
 
-set terminal png
-set output "./figures/E_01_0005.png"
-set title 'Total energy of 1 particle with dt = 0.005'
-set xlabel 'T'
-set ylabel 'E'
-stats "./data/E_01_0005.dat" using 2 name "A"
-m = ceil(A_max/10)*10
-set yrange[0:m]
-
-plot './data/E_01_0005.dat' using 1:2 with lines lt 2 lc rgb '#000000' title "Energy"
-
-set terminal epslatex color
-set output "../Report/figures/E_01_0005.tex"
-
-replot
-
-
-clear
-reset
-
 
 set terminal png
 set output "./figures/E_02_0005.png"
@@ -44,18 +24,18 @@ reset
 
 
 set terminal png
-set output "./figures/E_10_0005.png"
-set title 'Total energy per particle of 10 particles with dt = 0.005'
+set output "./figures/E_10_0000.png"
+set title 'Total energy per particle of 10 particles with $\Delta t$ = 0.001'
 set xlabel 'T'
 set ylabel 'E'
-stats "./data/E_10_0005.dat" using 2 name "A"
+stats "./data/E_10_0000.dat" using 2 name "A"
 m = ceil(A_max/10)*10
 set yrange[0:m]
 
-plot './data/E_10_0005.dat' using 1:2 with lines lt 2 lc rgb '#000000' title "Energy"
+plot './data/E_10_0000.dat' using 1:2 with lines lt 2 lc rgb '#000000' title "Energy"
 
 set terminal epslatex color
-set output "../Report/figures/E_10_0005.tex"
+set output "../Report/figures/E_10_0000.tex"
 
 replot
 
