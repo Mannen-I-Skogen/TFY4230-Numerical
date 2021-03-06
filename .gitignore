@@ -40,5 +40,8 @@
 *.aux
 *.log
 *.synctex.gz
+*.blg
+*.bbl
+*.run.xml
 
 verlet.py
