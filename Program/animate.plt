@@ -1,7 +1,7 @@
 clear
 reset
 
-set term gif animate delay 1
+set term gif animate delay 3
 set output "./figures/Animation.gif"
 set xrange[-2:12]
 set yrange[-2:12]
