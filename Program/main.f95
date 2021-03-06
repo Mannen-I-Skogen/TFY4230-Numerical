@@ -8,9 +8,9 @@ program verlet
         implicit none
 
         ! --- Setting variables
-        Integer                         ::  i, j, k, partNum, steps, LX, LY, seed, S, check
+        Integer                         ::  i, j, k, partNum, steps, LX, LY, seed, initT
         Real(wp)                        ::  start, finish, dt, KK, EPS, time, Kinetic, potential,&
-                                            rij, rijsqr, dvdr, aa, EPP, vel
+                                            rij, rijsqr, dvdr, aa, EPP, fps
         Real(wp), allocatable           ::  x(:), y(:), vx(:), vy(:), ax(:), ay(:), history(:,:),&
                                             energy(:,:), kineticPP(:,:)
         character(len=4)                ::  num
@@ -21,7 +21,7 @@ program verlet
         call cpu_time(start)
         ! --- Read input file.
         call read_input_file()
-        ! --- Now param%A,B,C have values given in the input file.
+        ! --- Now param%partNum, param%dt and so on have values given in the input file.
         ! --- Write to command line a few words to check the parameters have read correctly.
         write(*,*) 'Check parameters.'
         write(*,*) 'partNum: ', param%partNum
@@ -38,6 +38,7 @@ program verlet
         write(*,*) 'allK: ', param%allK
         write(*,*) 'Constants:'
         write(*,*) 'pi', pi
+        ! --- Set the parameters to variable names so they are easier to write.
         partNum = param%partNum
         dt = param%dt
         LX = param%LX
@@ -46,13 +47,29 @@ program verlet
         EPS = param%EPS
         EPP = param%EPP
         time = param%time
-        ! --- Set seed for random
-        seed = 2187
+        ! --- Set seed for random numbers if the seed is initT the seed is set from the system clock,
+        ! --- this will make it so that the random numbers are different each run, if the seed is fixed
+        ! --- the random numbers will be the same each run. This is good for calibration.
+        call system_clock(initT)
+        seed = initT
+        seed = 48154
+        print *, 'seed:', initT
         call srand(seed)
-        ! --- Test random
-        ! --- Initialize variable
+        ! --- Test ---
+
+        ! --- Test random, this prints some random numbers they should be between 0 and 10
+        do i = 1, 10
+            print *, rand()*10
+        end do
+        ! --- Initialize variables
+        ! --- fps will determine how often the data for the trajectory will be recorded higher number means more data is recorded
+        fps = 50
         steps = int((time/dt)+0.1)
         print *, 'steps: ', steps
+        print *, 'FPS: ', fps
+        ! --- Animation constant is calculated from the fps if the constant is 1 all the steps are recorded,
+        ! --- if the constant is for instance 10 then frames 1, 11, 21.... will be recorded.
+        print *, 'animation constant: ', steps/(fps*time)
         ! --- Allocate arrays
         allocate(x(partNum))
         allocate(y(partNum))
@@ -74,46 +91,18 @@ program verlet
         history(:,:) = 0.0
         kineticPP(:,:) = 0.0
         ! --- initialize particles
-        if (partNum == 1) then
-            x(1) = 8
-            y(1) = 8
-            vx(1) = -5
-            vy(1) = 10
-        end if
-        if (partNum == 2) then
-            x(1) = 2
-            y(1) = 8
-            vx(1) = 1*sqrt(EPP)
-            vy(1) = -1*sqrt(EPP)
-            x(2) = 8
-            y(2) = 8
-            vx(2) = -1*sqrt(EPP)
-            vy(2) = -1*sqrt(EPP)
-        end if
-        if (partNum > 2) then
-            do i = 1, partNum
-                check = 0
-                do while (check == 0)
-                    x(i) = rand()*LX
-                    y(i) = rand()*LY
-                    check = 1
-                    do j = 1, i-1
-                        rijsqr = sqrt((x(i)-x(j))**2+(y(i)-y(j))**2)
-                        if (rijsqr < 1) then
-                            check = 0
-                        end if
-                    end do
-                end do
-                vel = sqrt(2*EPP)
-                vx(i) = rand()*2*vel-vel
-                vy(i) = (int(rand()*2)*2-1)*sqrt(2*EPP-vx(i)**2)
-            end do
-        end if
+        call initialize(x,y,vx,vy)
 
         ! ----------------------
         ! --- Calibrate Mode ---
         ! ----------------------
         if (param%calibrate == 1) then
+            if (partNum == 1) then
+                x(1) = 1
+                y(1) = 2
+                vx(1) = 10
+                vy(1) = -5
+            end if
             if (partNum == 2) then
                 x(1) = 3
                 y(1) = 3
@@ -133,10 +122,12 @@ program verlet
 
         print *, 'Initializing...'
         print *, 'Start values:'
-        print *, 'Position:',x, y
-        print *, 'Velocity:',vx, vy
-        print *, 'Acceleration:',ax, ay
+        print *, 'Position:', x, y
+        print *, 'Velocity:', vx, vy
+        print *, 'Acceleration:', ax, ay
         print *, ''
+
+        ! --- Create strings to put in the title of the output files
         write(num,100) int((time/steps)*1000)
         100 format(I4.4)
         write(num2,50) partNum
@@ -216,12 +207,12 @@ program verlet
             energy(2,i) = (kinetic + potential)/partNum
         end do
 
-        print *, 'test2'
-
         if (param%trace == 1) then
             open(1, file = './data/P_'//num2//'_' //num// '.dat')
             do i = 1, steps
-                write(1,*) history(:,i)
+                if (modulo(i,int(steps/(fps*time))) == 1 .or. int(steps/(fps*time)) == 1) then
+                    write(1,*) history(:,i)
+                end if
             end do
             close(1)
         end if
@@ -229,11 +220,13 @@ program verlet
         if (param%animate == 1) then
             open(1, file = './data/animate.dat')
             do i = 1, steps
-                do j = 1, partNum
-                    write(1,*) history(j*2-1,i), history(j*2,i)
-                end do
-                write(1,*)
-                write(1,*)
+                if (modulo(i,int(steps/(fps*time))) == 1 .or. int(steps/(fps*time)) == 1) then
+                    do j = 1, partNum
+                        write(1,*) history(j*2-1,i), history(j*2,i)
+                    end do
+                    write(1,*)
+                    write(1,*)
+                end if
             end do
             close(1)
         end if
