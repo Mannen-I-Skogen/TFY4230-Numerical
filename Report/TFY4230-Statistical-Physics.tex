@@ -2,7 +2,7 @@
 
 %\documentclass[a4paper,10pt,rmp,onecolumn,secnumarabic,numerical,balancelastpage,amsmath,amssymb,hyperref=pdftex,superscriptaddress]{article}
 
-\documentclass[10pt,a4paper,rmp,twocolumn,secnumarabic,numerical,balancelastpage,nofootinbib,hyperref=pdftex,superscriptaddress]{revtex4-2}
+\documentclass[10pt,a4paper,apm,twocolumn,secnumarabic,numerical,balancelastpage,nofootinbib,superscriptaddress]{revtex4-2}
 
 \usepackage[T1]{fontenc} % Vise norske tegn
 \usepackage{ulem} % for \uuline (double underline)
@@ -19,6 +19,10 @@
 \usepackage{physics} % Use the physics package
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{geometry} % Required for adjusting page dimensions and margins
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true
+}
 
 \geometry{
 	paper=a4paper, % Paper size, change to letterpaper for US letter size
@@ -50,6 +54,7 @@
 \thanks{A footnote to the article title}%
 
 \author{Stian S. Johannessen}
+ \homepage{https://folk.ntnu.no/stiansjo}
  \email{stiansjo@stud.ntnu.no}
  \affiliation{Department of Physics, NTNU, Norway.}
 \date{\today}
@@ -64,9 +69,57 @@
 	
 	\begin{figure*}[htb]
 		\centering
-		\scalebox{0.9}{\input{"./figures/P_01_0005.tex"}}
-		\label{bg}
-		\caption{Trajectory of one particle}
+		\begin{subfigure}{.45\textwidth}
+			\scalebox{0.6}{\input{"./figures/P_01_0000.tex"}}
+			\caption{Path of one particle with $\Delta t=0.001$}
+		\end{subfigure}
+		\begin{subfigure}{.45\textwidth}
+			\scalebox{0.6}{\input{"./figures/P_01_0005.tex"}}
+			\caption{Path of one particle with $\Delta t=0.005$}
+		\end{subfigure}
+		\begin{subfigure}{.45\textwidth}
+			\scalebox{0.6}{\input{"./figures/P_01_0010.tex"}}
+			\caption{Path of one particle with $\Delta t=0.010$}
+		\end{subfigure}
+		\begin{subfigure}{.45\textwidth}
+			\scalebox{0.6}{\input{"./figures/P_01_0020.tex"}}
+			\caption{Path of one particle with $\Delta t=0.020$}
+		\end{subfigure}
+		\caption{Path of one particle with different values of time step $dt$}
 	\end{figure*}
+	
+	\begin{figure*}[htb]
+		\centering
+		\begin{subfigure}{.45\textwidth}
+			\scalebox{0.6}{\input{"./figures/E_01_0000.tex"}}
+			\caption{Energy drift with $\Delta t=0.001$}
+		\end{subfigure}
+		\begin{subfigure}{.45\textwidth}
+			\scalebox{0.6}{\input{"./figures/E_01_0005.tex"}}
+			\caption{Energy drift with $\Delta t=0.005$}
+		\end{subfigure}
+		\begin{subfigure}{.45\textwidth}
+			\scalebox{0.6}{\input{"./figures/E_01_0010.tex"}}
+			\caption{Energy drift with $\Delta t=0.010$}
+		\end{subfigure}
+		\begin{subfigure}{.45\textwidth}
+			\scalebox{0.6}{\input{"./figures/E_01_0020.tex"}}
+			\caption{Energy drift with $\Delta t=0.020$}
+		\end{subfigure}
+		\caption{Energy drift of one particle with different values of time step $dt$}
+	\end{figure*}
+	
+	\section{test cite}
+	
+		This is a cite to \citep{Agarwal2001}
+	
+	
+	\appendix
+	
+		\section{Source code}
+		
+			The source code may have been given to you along with this text, if it wasnt the source code along with the source for this text and raw data can be found at \href{https://github.com/Mannen-I-Skogen/TFY4230-Numerical}{this link}
+	
+	\bibliography{TFY4230-Statistical-Physics}
 
 \end{document}
