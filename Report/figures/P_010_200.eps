@@ -1,0 +1,2614 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: ../Report/figures/P_010_200.tex
+%%Creator: gnuplot 5.2 patchlevel 7
+%%CreationDate: Mon Mar 08 23:57:07 2021
+%%DocumentFonts: 
+%%BoundingBox: 50 50 410 302
+%%EndComments
+%%BeginProlog
+/gnudict 256 dict def
+gnudict begin
+%
+% The following true/false flags may be edited by hand if desired.
+% The unit line width and grayscale image gamma correction may also be changed.
+%
+/Color true def
+/Blacktext true def
+/Solid false def
+/Dashlength 1 def
+/Landscape false def
+/Level1 false def
+/Level3 false def
+/Rounded false def
+/ClipToBoundingBox false def
+/SuppressPDFMark false def
+/TransparentPatterns false def
+/gnulinewidth 5.000 def
+/userlinewidth gnulinewidth def
+/Gamma 1.0 def
+/BackgroundColor {-1.000 -1.000 -1.000} def
+%
+/vshift -73 def
+/dl1 {
+  10.0 Dashlength userlinewidth gnulinewidth div mul mul mul
+  Rounded { currentlinewidth 0.75 mul sub dup 0 le { pop 0.01 } if } if
+} def
+/dl2 {
+  10.0 Dashlength userlinewidth gnulinewidth div mul mul mul
+  Rounded { currentlinewidth 0.75 mul add } if
+} def
+/hpt_ 31.5 def
+/vpt_ 31.5 def
+/hpt hpt_ def
+/vpt vpt_ def
+/doclip {
+  ClipToBoundingBox {
+    newpath 50 50 moveto 410 50 lineto 410 302 lineto 50 302 lineto closepath
+    clip
+  } if
+} def
+%
+% Gnuplot Prolog Version 5.2 (Dec 2017)
+%
+%/SuppressPDFMark true def
+%
+/M {moveto} bind def
+/L {lineto} bind def
+/R {rmoveto} bind def
+/V {rlineto} bind def
+/N {newpath moveto} bind def
+/Z {closepath} bind def
+/C {setrgbcolor} bind def
+/f {rlineto fill} bind def
+/g {setgray} bind def
+/Gshow {show} def   % May be redefined later in the file to support UTF-8
+/vpt2 vpt 2 mul def
+/hpt2 hpt 2 mul def
+/Lshow {currentpoint stroke M 0 vshift R 
+	Blacktext {gsave 0 setgray textshow grestore} {textshow} ifelse} def
+/Rshow {currentpoint stroke M dup stringwidth pop neg vshift R
+	Blacktext {gsave 0 setgray textshow grestore} {textshow} ifelse} def
+/Cshow {currentpoint stroke M dup stringwidth pop -2 div vshift R 
+	Blacktext {gsave 0 setgray textshow grestore} {textshow} ifelse} def
+/UP {dup vpt_ mul /vpt exch def hpt_ mul /hpt exch def
+  /hpt2 hpt 2 mul def /vpt2 vpt 2 mul def} def
+/DL {Color {setrgbcolor Solid {pop []} if 0 setdash}
+ {pop pop pop 0 setgray Solid {pop []} if 0 setdash} ifelse} def
+/BL {stroke userlinewidth 2 mul setlinewidth
+	Rounded {1 setlinejoin 1 setlinecap} if} def
+/AL {stroke userlinewidth 2 div setlinewidth
+	Rounded {1 setlinejoin 1 setlinecap} if} def
+/UL {dup gnulinewidth mul /userlinewidth exch def
+	dup 1 lt {pop 1} if 10 mul /udl exch def} def
+/PL {stroke userlinewidth setlinewidth
+	Rounded {1 setlinejoin 1 setlinecap} if} def
+3.8 setmiterlimit
+% Classic Line colors (version 5.0)
+/LCw {1 1 1} def
+/LCb {0 0 0} def
+/LCa {0 0 0} def
+/LC0 {1 0 0} def
+/LC1 {0 1 0} def
+/LC2 {0 0 1} def
+/LC3 {1 0 1} def
+/LC4 {0 1 1} def
+/LC5 {1 1 0} def
+/LC6 {0 0 0} def
+/LC7 {1 0.3 0} def
+/LC8 {0.5 0.5 0.5} def
+% Default dash patterns (version 5.0)
+/LTB {BL [] LCb DL} def
+/LTw {PL [] 1 setgray} def
+/LTb {PL [] LCb DL} def
+/LTa {AL [1 udl mul 2 udl mul] 0 setdash LCa setrgbcolor} def
+/LT0 {PL [] LC0 DL} def
+/LT1 {PL [2 dl1 3 dl2] LC1 DL} def
+/LT2 {PL [1 dl1 1.5 dl2] LC2 DL} def
+/LT3 {PL [6 dl1 2 dl2 1 dl1 2 dl2] LC3 DL} def
+/LT4 {PL [1 dl1 2 dl2 6 dl1 2 dl2 1 dl1 2 dl2] LC4 DL} def
+/LT5 {PL [4 dl1 2 dl2] LC5 DL} def
+/LT6 {PL [1.5 dl1 1.5 dl2 1.5 dl1 1.5 dl2 1.5 dl1 6 dl2] LC6 DL} def
+/LT7 {PL [3 dl1 3 dl2 1 dl1 3 dl2] LC7 DL} def
+/LT8 {PL [2 dl1 2 dl2 2 dl1 6 dl2] LC8 DL} def
+/SL {[] 0 setdash} def
+/Pnt {stroke [] 0 setdash gsave 1 setlinecap M 0 0 V stroke grestore} def
+/Dia {stroke [] 0 setdash 2 copy vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V closepath stroke
+  Pnt} def
+/Pls {stroke [] 0 setdash vpt sub M 0 vpt2 V
+  currentpoint stroke M
+  hpt neg vpt neg R hpt2 0 V stroke
+ } def
+/Box {stroke [] 0 setdash 2 copy exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V closepath stroke
+  Pnt} def
+/Crs {stroke [] 0 setdash exch hpt sub exch vpt add M
+  hpt2 vpt2 neg V currentpoint stroke M
+  hpt2 neg 0 R hpt2 vpt2 V stroke} def
+/TriU {stroke [] 0 setdash 2 copy vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V closepath stroke
+  Pnt} def
+/Star {2 copy Pls Crs} def
+/BoxF {stroke [] 0 setdash exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V closepath fill} def
+/TriUF {stroke [] 0 setdash vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V closepath fill} def
+/TriD {stroke [] 0 setdash 2 copy vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V closepath stroke
+  Pnt} def
+/TriDF {stroke [] 0 setdash vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V closepath fill} def
+/DiaF {stroke [] 0 setdash vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V closepath fill} def
+/Pent {stroke [] 0 setdash 2 copy gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  closepath stroke grestore Pnt} def
+/PentF {stroke [] 0 setdash gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  closepath fill grestore} def
+/Circle {stroke [] 0 setdash 2 copy
+  hpt 0 360 arc stroke Pnt} def
+/CircleF {stroke [] 0 setdash hpt 0 360 arc fill} def
+/C0 {BL [] 0 setdash 2 copy moveto vpt 90 450 arc} bind def
+/C1 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 90 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C2 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 90 180 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C3 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 180 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C4 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 180 270 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C5 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 90 arc
+	2 copy moveto
+	2 copy vpt 180 270 arc closepath fill
+	vpt 0 360 arc} bind def
+/C6 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 90 270 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C7 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 270 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C8 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 270 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C9 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 270 450 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C10 {BL [] 0 setdash 2 copy 2 copy moveto vpt 270 360 arc closepath fill
+	2 copy moveto
+	2 copy vpt 90 180 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C11 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 180 arc closepath fill
+	2 copy moveto
+	2 copy vpt 270 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C12 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 180 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C13 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 90 arc closepath fill
+	2 copy moveto
+	2 copy vpt 180 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C14 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 90 360 arc closepath fill
+	vpt 0 360 arc} bind def
+/C15 {BL [] 0 setdash 2 copy vpt 0 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/Rec {newpath 4 2 roll moveto 1 index 0 rlineto 0 exch rlineto
+	neg 0 rlineto closepath} bind def
+/Square {dup Rec} bind def
+/Bsquare {vpt sub exch vpt sub exch vpt2 Square} bind def
+/S0 {BL [] 0 setdash 2 copy moveto 0 vpt rlineto BL Bsquare} bind def
+/S1 {BL [] 0 setdash 2 copy vpt Square fill Bsquare} bind def
+/S2 {BL [] 0 setdash 2 copy exch vpt sub exch vpt Square fill Bsquare} bind def
+/S3 {BL [] 0 setdash 2 copy exch vpt sub exch vpt2 vpt Rec fill Bsquare} bind def
+/S4 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt Square fill Bsquare} bind def
+/S5 {BL [] 0 setdash 2 copy 2 copy vpt Square fill
+	exch vpt sub exch vpt sub vpt Square fill Bsquare} bind def
+/S6 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt vpt2 Rec fill Bsquare} bind def
+/S7 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt vpt2 Rec fill
+	2 copy vpt Square fill Bsquare} bind def
+/S8 {BL [] 0 setdash 2 copy vpt sub vpt Square fill Bsquare} bind def
+/S9 {BL [] 0 setdash 2 copy vpt sub vpt vpt2 Rec fill Bsquare} bind def
+/S10 {BL [] 0 setdash 2 copy vpt sub vpt Square fill 2 copy exch vpt sub exch vpt Square fill
+	Bsquare} bind def
+/S11 {BL [] 0 setdash 2 copy vpt sub vpt Square fill 2 copy exch vpt sub exch vpt2 vpt Rec fill
+	Bsquare} bind def
+/S12 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt2 vpt Rec fill Bsquare} bind def
+/S13 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt2 vpt Rec fill
+	2 copy vpt Square fill Bsquare} bind def
+/S14 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt2 vpt Rec fill
+	2 copy exch vpt sub exch vpt Square fill Bsquare} bind def
+/S15 {BL [] 0 setdash 2 copy Bsquare fill Bsquare} bind def
+/D0 {gsave translate 45 rotate 0 0 S0 stroke grestore} bind def
+/D1 {gsave translate 45 rotate 0 0 S1 stroke grestore} bind def
+/D2 {gsave translate 45 rotate 0 0 S2 stroke grestore} bind def
+/D3 {gsave translate 45 rotate 0 0 S3 stroke grestore} bind def
+/D4 {gsave translate 45 rotate 0 0 S4 stroke grestore} bind def
+/D5 {gsave translate 45 rotate 0 0 S5 stroke grestore} bind def
+/D6 {gsave translate 45 rotate 0 0 S6 stroke grestore} bind def
+/D7 {gsave translate 45 rotate 0 0 S7 stroke grestore} bind def
+/D8 {gsave translate 45 rotate 0 0 S8 stroke grestore} bind def
+/D9 {gsave translate 45 rotate 0 0 S9 stroke grestore} bind def
+/D10 {gsave translate 45 rotate 0 0 S10 stroke grestore} bind def
+/D11 {gsave translate 45 rotate 0 0 S11 stroke grestore} bind def
+/D12 {gsave translate 45 rotate 0 0 S12 stroke grestore} bind def
+/D13 {gsave translate 45 rotate 0 0 S13 stroke grestore} bind def
+/D14 {gsave translate 45 rotate 0 0 S14 stroke grestore} bind def
+/D15 {gsave translate 45 rotate 0 0 S15 stroke grestore} bind def
+/DiaE {stroke [] 0 setdash vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V closepath stroke} def
+/BoxE {stroke [] 0 setdash exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V closepath stroke} def
+/TriUE {stroke [] 0 setdash vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V closepath stroke} def
+/TriDE {stroke [] 0 setdash vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V closepath stroke} def
+/PentE {stroke [] 0 setdash gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  closepath stroke grestore} def
+/CircE {stroke [] 0 setdash 
+  hpt 0 360 arc stroke} def
+/Opaque {gsave closepath 1 setgray fill grestore 0 setgray closepath} def
+/DiaW {stroke [] 0 setdash vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V Opaque stroke} def
+/BoxW {stroke [] 0 setdash exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V Opaque stroke} def
+/TriUW {stroke [] 0 setdash vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V Opaque stroke} def
+/TriDW {stroke [] 0 setdash vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V Opaque stroke} def
+/PentW {stroke [] 0 setdash gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  Opaque stroke grestore} def
+/CircW {stroke [] 0 setdash 
+  hpt 0 360 arc Opaque stroke} def
+/BoxFill {gsave Rec 1 setgray fill grestore} def
+/Density {
+  /Fillden exch def
+  currentrgbcolor
+  /ColB exch def /ColG exch def /ColR exch def
+  /ColR ColR Fillden mul Fillden sub 1 add def
+  /ColG ColG Fillden mul Fillden sub 1 add def
+  /ColB ColB Fillden mul Fillden sub 1 add def
+  ColR ColG ColB setrgbcolor} def
+/BoxColFill {gsave Rec PolyFill} def
+/PolyFill {gsave Density fill grestore grestore} def
+/h {rlineto rlineto rlineto closepath gsave fill grestore stroke} bind def
+%
+% PostScript Level 1 Pattern Fill routine for rectangles
+% Usage: x y w h s a XX PatternFill
+%	x,y = lower left corner of box to be filled
+%	w,h = width and height of box
+%	  a = angle in degrees between lines and x-axis
+%	 XX = 0/1 for no/yes cross-hatch
+%
+/PatternFill {gsave /PFa [ 9 2 roll ] def
+  PFa 0 get PFa 2 get 2 div add PFa 1 get PFa 3 get 2 div add translate
+  PFa 2 get -2 div PFa 3 get -2 div PFa 2 get PFa 3 get Rec
+  TransparentPatterns {} {gsave 1 setgray fill grestore} ifelse
+  clip
+  currentlinewidth 0.5 mul setlinewidth
+  /PFs PFa 2 get dup mul PFa 3 get dup mul add sqrt def
+  0 0 M PFa 5 get rotate PFs -2 div dup translate
+  0 1 PFs PFa 4 get div 1 add floor cvi
+	{PFa 4 get mul 0 M 0 PFs V} for
+  0 PFa 6 get ne {
+	0 1 PFs PFa 4 get div 1 add floor cvi
+	{PFa 4 get mul 0 2 1 roll M PFs 0 V} for
+ } if
+  stroke grestore} def
+%
+/languagelevel where
+ {pop languagelevel} {1} ifelse
+dup 2 lt
+	{/InterpretLevel1 true def
+	 /InterpretLevel3 false def}
+	{/InterpretLevel1 Level1 def
+	 2 gt
+	    {/InterpretLevel3 Level3 def}
+	    {/InterpretLevel3 false def}
+	 ifelse }
+ ifelse
+%
+% PostScript level 2 pattern fill definitions
+%
+/Level2PatternFill {
+/Tile8x8 {/PaintType 2 /PatternType 1 /TilingType 1 /BBox [0 0 8 8] /XStep 8 /YStep 8}
+	bind def
+/KeepColor {currentrgbcolor [/Pattern /DeviceRGB] setcolorspace} bind def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 0 M 8 8 L 0 8 M 8 0 L stroke} 
+>> matrix makepattern
+/Pat1 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 0 M 8 8 L 0 8 M 8 0 L stroke
+	0 4 M 4 8 L 8 4 L 4 0 L 0 4 L stroke}
+>> matrix makepattern
+/Pat2 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 0 M 0 8 L
+	8 8 L 8 0 L 0 0 L fill}
+>> matrix makepattern
+/Pat3 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -4 8 M 8 -4 L
+	0 12 M 12 0 L stroke}
+>> matrix makepattern
+/Pat4 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -4 0 M 8 12 L
+	0 -4 M 12 8 L stroke}
+>> matrix makepattern
+/Pat5 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -2 8 M 4 -4 L
+	0 12 M 8 -4 L 4 12 M 10 0 L stroke}
+>> matrix makepattern
+/Pat6 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -2 0 M 4 12 L
+	0 -4 M 8 12 L 4 -4 M 10 8 L stroke}
+>> matrix makepattern
+/Pat7 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 8 -2 M -4 4 L
+	12 0 M -4 8 L 12 4 M 0 10 L stroke}
+>> matrix makepattern
+/Pat8 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 -2 M 12 4 L
+	-4 0 M 12 8 L -4 4 M 8 10 L stroke}
+>> matrix makepattern
+/Pat9 exch def
+/Pattern1 {PatternBgnd KeepColor Pat1 setpattern} bind def
+/Pattern2 {PatternBgnd KeepColor Pat2 setpattern} bind def
+/Pattern3 {PatternBgnd KeepColor Pat3 setpattern} bind def
+/Pattern4 {PatternBgnd KeepColor Landscape {Pat5} {Pat4} ifelse setpattern} bind def
+/Pattern5 {PatternBgnd KeepColor Landscape {Pat4} {Pat5} ifelse setpattern} bind def
+/Pattern6 {PatternBgnd KeepColor Landscape {Pat9} {Pat6} ifelse setpattern} bind def
+/Pattern7 {PatternBgnd KeepColor Landscape {Pat8} {Pat7} ifelse setpattern} bind def
+} def
+%
+%
+%End of PostScript Level 2 code
+%
+/PatternBgnd {
+  TransparentPatterns {} {gsave 1 setgray fill grestore} ifelse
+} def
+%
+% Substitute for Level 2 pattern fill codes with
+% grayscale if Level 2 support is not selected.
+%
+/Level1PatternFill {
+/Pattern1 {0.250 Density} bind def
+/Pattern2 {0.500 Density} bind def
+/Pattern3 {0.750 Density} bind def
+/Pattern4 {0.125 Density} bind def
+/Pattern5 {0.375 Density} bind def
+/Pattern6 {0.625 Density} bind def
+/Pattern7 {0.875 Density} bind def
+} def
+%
+% Now test for support of Level 2 code
+%
+Level1 {Level1PatternFill} {Level2PatternFill} ifelse
+%
+/Symbol-Oblique /Symbol findfont [1 0 .167 1 0 0] makefont
+dup length dict begin {1 index /FID eq {pop pop} {def} ifelse} forall
+currentdict end definefont pop
+%
+Level1 SuppressPDFMark or 
+{} {
+/SDict 10 dict def
+systemdict /pdfmark known not {
+  userdict /pdfmark systemdict /cleartomark get put
+} if
+SDict begin [
+  /Title (../Report/figures/P_010_200.tex)
+  /Subject (gnuplot plot)
+  /Creator (gnuplot 5.2 patchlevel 7)
+%  /Producer (gnuplot)
+%  /Keywords ()
+  /CreationDate (Mon Mar 08 23:57:07 2021)
+  /DOCINFO pdfmark
+end
+} ifelse
+%
+% Support for boxed text - Ethan A Merritt Sep 2016
+%
+/InitTextBox { userdict /TBy2 3 -1 roll put userdict /TBx2 3 -1 roll put
+           userdict /TBy1 3 -1 roll put userdict /TBx1 3 -1 roll put
+	   /Boxing true def } def
+/ExtendTextBox { dup type /stringtype eq
+    { Boxing { gsave dup false charpath pathbbox
+      dup TBy2 gt {userdict /TBy2 3 -1 roll put} {pop} ifelse
+      dup TBx2 gt {userdict /TBx2 3 -1 roll put} {pop} ifelse
+      dup TBy1 lt {userdict /TBy1 3 -1 roll put} {pop} ifelse
+      dup TBx1 lt {userdict /TBx1 3 -1 roll put} {pop} ifelse
+      grestore } if }
+    {} ifelse} def
+/PopTextBox { newpath TBx1 TBxmargin sub TBy1 TBymargin sub M
+               TBx1 TBxmargin sub TBy2 TBymargin add L
+	       TBx2 TBxmargin add TBy2 TBymargin add L
+	       TBx2 TBxmargin add TBy1 TBymargin sub L closepath } def
+/DrawTextBox { PopTextBox stroke /Boxing false def} def
+/FillTextBox { gsave PopTextBox fill grestore /Boxing false def} def
+0 0 0 0 InitTextBox
+/TBxmargin 20 def
+/TBymargin 20 def
+/Boxing false def
+/textshow { ExtendTextBox Gshow } def
+%
+end
+%%EndProlog
+%%Page: 1 1
+gnudict begin
+gsave
+doclip
+50 50 translate
+0.050 0.050 scale
+0 setgray
+newpath
+1.000 UL
+LTb
+LCb setrgbcolor
+[] 0 setdash
+2059 840 M
+63 0 V
+3612 0 R
+-63 0 V
+stroke
+LTb
+2059 1521 M
+63 0 V
+3612 0 R
+-63 0 V
+stroke
+2059 2201 M
+63 0 V
+3612 0 R
+-63 0 V
+stroke
+2059 2882 M
+63 0 V
+3612 0 R
+-63 0 V
+stroke
+2059 3562 M
+63 0 V
+3612 0 R
+-63 0 V
+stroke
+2059 4243 M
+63 0 V
+3612 0 R
+-63 0 V
+stroke
+2195 704 M
+0 63 V
+0 3612 R
+0 -63 V
+stroke
+2876 704 M
+0 63 V
+0 3612 R
+0 -63 V
+stroke
+3556 704 M
+0 63 V
+0 3612 R
+0 -63 V
+stroke
+4237 704 M
+0 63 V
+0 3612 R
+0 -63 V
+stroke
+4917 704 M
+0 63 V
+0 3612 R
+0 -63 V
+stroke
+5598 704 M
+0 63 V
+0 3612 R
+0 -63 V
+stroke
+1.000 UL
+LTb
+2059 4379 N
+0 -3675 V
+3675 0 V
+0 3675 V
+-3675 0 V
+Z stroke
+1.000 UP
+1.000 UL
+[] 0 setdash
+2195 840 M
+0 3403 V
+stroke
+[] 0 setdash
+2195 840 M
+3403 0 V
+stroke
+[] 0 setdash
+2195 4243 M
+3403 0 V
+stroke
+[] 0 setdash
+5598 840 M
+0 3403 V
+stroke
+LTb
+% Begin plot #1
+1.000 UP
+1.000 UL
+LTb
+1.00 0.00 0.00 C
+3588 1476 Circle
+3599 1424 Circle
+3609 1373 Circle
+3620 1321 Circle
+3631 1269 Circle
+3641 1218 Circle
+3652 1166 Circle
+3663 1114 Circle
+3673 1063 Circle
+3684 1011 Circle
+3695 960 Circle
+3705 908 Circle
+3716 856 Circle
+3727 855 Circle
+3737 906 Circle
+3748 958 Circle
+3759 1009 Circle
+3769 1061 Circle
+3780 1112 Circle
+3791 1164 Circle
+3801 1216 Circle
+3812 1267 Circle
+3823 1319 Circle
+3833 1370 Circle
+3844 1422 Circle
+3855 1474 Circle
+3865 1525 Circle
+3876 1577 Circle
+3887 1628 Circle
+3897 1680 Circle
+3908 1732 Circle
+3919 1783 Circle
+3929 1835 Circle
+3940 1886 Circle
+3951 1938 Circle
+3961 1990 Circle
+3972 2041 Circle
+3983 2093 Circle
+3993 2144 Circle
+4004 2196 Circle
+4015 2247 Circle
+4025 2299 Circle
+4036 2351 Circle
+4047 2402 Circle
+4057 2454 Circle
+4068 2505 Circle
+4079 2557 Circle
+4090 2608 Circle
+4101 2660 Circle
+4112 2712 Circle
+4123 2763 Circle
+4134 2815 Circle
+4145 2866 Circle
+4156 2918 Circle
+4166 2969 Circle
+4177 3021 Circle
+4188 3072 Circle
+4199 3124 Circle
+4210 3175 Circle
+4221 3227 Circle
+4232 3278 Circle
+4243 3330 Circle
+4254 3381 Circle
+4265 3433 Circle
+4277 3484 Circle
+4288 3536 Circle
+4299 3587 Circle
+4310 3639 Circle
+4322 3690 Circle
+4333 3742 Circle
+4344 3793 Circle
+4356 3845 Circle
+4341 3886 Circle
+4309 3922 Circle
+4276 3957 Circle
+4244 3993 Circle
+4212 4028 Circle
+4179 4064 Circle
+4147 4099 Circle
+4115 4135 Circle
+4082 4170 Circle
+4050 4206 Circle
+4018 4241 Circle
+3985 4223 Circle
+3953 4188 Circle
+3920 4153 Circle
+3888 4117 Circle
+3856 4082 Circle
+3823 4046 Circle
+3791 4011 Circle
+3759 3975 Circle
+3726 3940 Circle
+3694 3904 Circle
+3662 3869 Circle
+3629 3833 Circle
+3597 3798 Circle
+3564 3762 Circle
+3532 3727 Circle
+3500 3691 Circle
+3467 3656 Circle
+3435 3621 Circle
+3403 3585 Circle
+3370 3550 Circle
+3338 3514 Circle
+3306 3479 Circle
+3273 3443 Circle
+3241 3408 Circle
+3209 3372 Circle
+3176 3337 Circle
+3144 3301 Circle
+3111 3266 Circle
+3079 3232 Circle
+3048 3198 Circle
+3017 3165 Circle
+2987 3132 Circle
+2957 3100 Circle
+2927 3067 Circle
+2896 3034 Circle
+2866 3001 Circle
+2836 2968 Circle
+2806 2935 Circle
+2775 2902 Circle
+2745 2869 Circle
+2714 2836 Circle
+2683 2804 Circle
+2651 2771 Circle
+2620 2738 Circle
+2589 2705 Circle
+2558 2672 Circle
+2527 2640 Circle
+2496 2607 Circle
+2465 2574 Circle
+2434 2541 Circle
+2403 2509 Circle
+2372 2476 Circle
+2341 2443 Circle
+2310 2410 Circle
+2279 2377 Circle
+2248 2345 Circle
+2217 2312 Circle
+2192 2279 Circle
+2223 2246 Circle
+2254 2213 Circle
+2285 2181 Circle
+2316 2148 Circle
+2347 2115 Circle
+2378 2082 Circle
+2409 2049 Circle
+2440 2017 Circle
+2471 1984 Circle
+2502 1951 Circle
+2533 1918 Circle
+2564 1886 Circle
+2595 1853 Circle
+2626 1820 Circle
+2657 1787 Circle
+2688 1754 Circle
+2719 1722 Circle
+2750 1689 Circle
+2781 1656 Circle
+2812 1623 Circle
+2843 1590 Circle
+2874 1558 Circle
+2905 1525 Circle
+2936 1492 Circle
+2968 1459 Circle
+2999 1427 Circle
+3030 1394 Circle
+3061 1361 Circle
+3092 1328 Circle
+3123 1295 Circle
+3154 1263 Circle
+3185 1230 Circle
+3216 1197 Circle
+3247 1164 Circle
+3278 1132 Circle
+3309 1099 Circle
+3340 1066 Circle
+3371 1033 Circle
+3402 1000 Circle
+3433 968 Circle
+3464 935 Circle
+3495 902 Circle
+3526 869 Circle
+3557 837 Circle
+3588 863 Circle
+3619 896 Circle
+3650 929 Circle
+3681 962 Circle
+3712 994 Circle
+3744 1027 Circle
+3775 1060 Circle
+3806 1093 Circle
+3837 1126 Circle
+3868 1158 Circle
+3899 1191 Circle
+3930 1224 Circle
+3961 1257 Circle
+3992 1290 Circle
+4023 1322 Circle
+4054 1355 Circle
+4085 1388 Circle
+4116 1421 Circle
+4147 1454 Circle
+4178 1486 Circle
+4209 1519 Circle
+4240 1552 Circle
+4271 1585 Circle
+4302 1618 Circle
+4333 1650 Circle
+4364 1683 Circle
+4395 1716 Circle
+4426 1749 Circle
+4457 1782 Circle
+4488 1815 Circle
+4519 1847 Circle
+4550 1880 Circle
+4581 1913 Circle
+4613 1945 Circle
+4668 1958 Circle
+4723 1971 Circle
+4779 1983 Circle
+4834 1996 Circle
+4890 2008 Circle
+4946 2020 Circle
+5001 2033 Circle
+5057 2045 Circle
+5112 2058 Circle
+5168 2070 Circle
+5223 2082 Circle
+5279 2095 Circle
+5334 2107 Circle
+5390 2120 Circle
+5446 2132 Circle
+5501 2144 Circle
+5557 2157 Circle
+5604 2169 Circle
+5551 2182 Circle
+5495 2194 Circle
+5439 2207 Circle
+5384 2219 Circle
+5328 2231 Circle
+5273 2244 Circle
+5217 2256 Circle
+5162 2269 Circle
+5106 2281 Circle
+5051 2293 Circle
+4995 2306 Circle
+4939 2318 Circle
+4884 2331 Circle
+4828 2343 Circle
+4773 2355 Circle
+4717 2368 Circle
+4662 2380 Circle
+4606 2393 Circle
+4551 2405 Circle
+4495 2417 Circle
+4439 2430 Circle
+4384 2442 Circle
+4328 2455 Circle
+4273 2467 Circle
+4217 2480 Circle
+4162 2492 Circle
+4106 2504 Circle
+4051 2517 Circle
+3995 2529 Circle
+3939 2542 Circle
+3884 2554 Circle
+3828 2566 Circle
+3773 2579 Circle
+3717 2591 Circle
+3662 2604 Circle
+3606 2616 Circle
+3551 2628 Circle
+3495 2641 Circle
+3440 2653 Circle
+3384 2666 Circle
+3329 2678 Circle
+3273 2690 Circle
+3217 2703 Circle
+3162 2715 Circle
+3106 2728 Circle
+3051 2740 Circle
+2995 2753 Circle
+2940 2765 Circle
+2884 2777 Circle
+2829 2790 Circle
+2773 2802 Circle
+2717 2815 Circle
+2662 2827 Circle
+2606 2839 Circle
+2551 2852 Circle
+2495 2864 Circle
+2440 2877 Circle
+2384 2889 Circle
+2329 2901 Circle
+2273 2914 Circle
+2218 2926 Circle
+2206 2939 Circle
+2261 2951 Circle
+2317 2963 Circle
+2372 2976 Circle
+2428 2988 Circle
+2483 3001 Circle
+2539 3013 Circle
+2594 3026 Circle
+2650 3038 Circle
+2706 3050 Circle
+2761 3063 Circle
+2817 3075 Circle
+2872 3088 Circle
+2928 3100 Circle
+2983 3112 Circle
+3039 3125 Circle
+3094 3137 Circle
+3150 3150 Circle
+3205 3162 Circle
+3261 3174 Circle
+3316 3187 Circle
+3372 3199 Circle
+3427 3212 Circle
+3483 3224 Circle
+3539 3236 Circle
+3594 3249 Circle
+3650 3261 Circle
+3705 3274 Circle
+3761 3286 Circle
+3816 3299 Circle
+3872 3311 Circle
+3927 3323 Circle
+3983 3336 Circle
+4038 3348 Circle
+4094 3361 Circle
+4149 3373 Circle
+4205 3385 Circle
+4260 3398 Circle
+4316 3410 Circle
+4371 3423 Circle
+4427 3435 Circle
+4483 3447 Circle
+4538 3460 Circle
+4594 3472 Circle
+4649 3485 Circle
+4705 3497 Circle
+4760 3509 Circle
+4816 3522 Circle
+4871 3534 Circle
+4927 3547 Circle
+4982 3559 Circle
+5038 3572 Circle
+5093 3584 Circle
+5149 3596 Circle
+5204 3609 Circle
+5260 3621 Circle
+5315 3634 Circle
+5371 3646 Circle
+5427 3658 Circle
+5482 3671 Circle
+5538 3683 Circle
+5593 3696 Circle
+5570 3708 Circle
+5514 3720 Circle
+5459 3733 Circle
+5403 3745 Circle
+5348 3758 Circle
+5292 3770 Circle
+5237 3782 Circle
+5181 3795 Circle
+5126 3807 Circle
+5070 3820 Circle
+5015 3832 Circle
+4959 3845 Circle
+4904 3857 Circle
+4848 3869 Circle
+4793 3882 Circle
+4737 3894 Circle
+4682 3907 Circle
+4626 3919 Circle
+4571 3931 Circle
+4515 3944 Circle
+4460 3956 Circle
+4404 3969 Circle
+4349 3981 Circle
+4293 3993 Circle
+4237 4006 Circle
+4182 4018 Circle
+4126 4031 Circle
+4071 4043 Circle
+4015 4055 Circle
+3960 4068 Circle
+3904 4080 Circle
+3849 4093 Circle
+3793 4105 Circle
+3737 4117 Circle
+3682 4130 Circle
+3626 4142 Circle
+3571 4154 Circle
+3515 4167 Circle
+3460 4179 Circle
+3404 4192 Circle
+3349 4204 Circle
+3293 4216 Circle
+3237 4229 Circle
+3182 4241 Circle
+3126 4237 Circle
+3071 4225 Circle
+3015 4212 Circle
+2960 4200 Circle
+2904 4188 Circle
+2849 4175 Circle
+2793 4163 Circle
+2737 4150 Circle
+2727 4163 Circle
+2743 4191 Circle
+2760 4220 Circle
+2777 4246 Circle
+2793 4222 Circle
+2810 4194 Circle
+2826 4165 Circle
+2843 4137 Circle
+2859 4109 Circle
+2876 4081 Circle
+2893 4053 Circle
+2909 4025 Circle
+2926 3997 Circle
+2942 3969 Circle
+2959 3941 Circle
+2975 3913 Circle
+2992 3885 Circle
+3007 3858 Circle
+3024 3831 Circle
+3040 3803 Circle
+3057 3776 Circle
+3073 3749 Circle
+3090 3722 Circle
+3106 3695 Circle
+3123 3668 Circle
+3139 3641 Circle
+3156 3614 Circle
+3172 3587 Circle
+3189 3560 Circle
+3205 3533 Circle
+3222 3506 Circle
+3238 3479 Circle
+3255 3452 Circle
+3272 3425 Circle
+3288 3398 Circle
+3305 3371 Circle
+3321 3344 Circle
+3338 3317 Circle
+3354 3290 Circle
+3371 3263 Circle
+3387 3236 Circle
+3404 3209 Circle
+3420 3182 Circle
+3437 3155 Circle
+3453 3128 Circle
+3470 3101 Circle
+3487 3074 Circle
+3503 3047 Circle
+3520 3020 Circle
+3536 2993 Circle
+3553 2966 Circle
+3569 2939 Circle
+3586 2912 Circle
+3602 2885 Circle
+3619 2858 Circle
+3635 2831 Circle
+3652 2804 Circle
+3669 2776 Circle
+3685 2749 Circle
+3702 2722 Circle
+3719 2695 Circle
+3736 2668 Circle
+3752 2640 Circle
+3769 2613 Circle
+3786 2586 Circle
+3803 2559 Circle
+3820 2532 Circle
+3836 2504 Circle
+3853 2477 Circle
+3870 2450 Circle
+3887 2423 Circle
+3904 2396 Circle
+3921 2368 Circle
+3937 2341 Circle
+3954 2315 Circle
+3971 2288 Circle
+3988 2261 Circle
+4005 2234 Circle
+4021 2207 Circle
+4038 2180 Circle
+4055 2154 Circle
+4072 2127 Circle
+4089 2100 Circle
+4106 2073 Circle
+4122 2046 Circle
+4139 2020 Circle
+4156 1993 Circle
+4173 1966 Circle
+4190 1939 Circle
+4206 1912 Circle
+4223 1885 Circle
+4240 1859 Circle
+4257 1832 Circle
+4274 1805 Circle
+4290 1778 Circle
+4307 1751 Circle
+4324 1725 Circle
+4341 1698 Circle
+4358 1671 Circle
+4375 1644 Circle
+4391 1617 Circle
+4408 1590 Circle
+4425 1564 Circle
+4442 1537 Circle
+4459 1510 Circle
+4475 1483 Circle
+4492 1456 Circle
+4509 1430 Circle
+4526 1403 Circle
+4543 1376 Circle
+4560 1349 Circle
+4576 1322 Circle
+4593 1295 Circle
+4610 1269 Circle
+4627 1242 Circle
+4644 1215 Circle
+4660 1188 Circle
+4677 1161 Circle
+4694 1135 Circle
+4711 1108 Circle
+4728 1081 Circle
+4745 1054 Circle
+4761 1027 Circle
+4778 1000 Circle
+4794 973 Circle
+4811 946 Circle
+4827 919 Circle
+4844 893 Circle
+4860 866 Circle
+4876 839 Circle
+4893 858 Circle
+4909 884 Circle
+4926 911 Circle
+4942 938 Circle
+4959 965 Circle
+4975 992 Circle
+4991 1019 Circle
+5008 1046 Circle
+5024 1073 Circle
+5041 1100 Circle
+5057 1127 Circle
+5074 1154 Circle
+5090 1181 Circle
+5107 1207 Circle
+5123 1234 Circle
+5139 1261 Circle
+5156 1288 Circle
+5172 1315 Circle
+5189 1342 Circle
+5205 1369 Circle
+5222 1396 Circle
+5238 1423 Circle
+5254 1450 Circle
+5271 1477 Circle
+5287 1504 Circle
+5304 1530 Circle
+5320 1557 Circle
+5337 1584 Circle
+5353 1611 Circle
+5369 1638 Circle
+5386 1665 Circle
+5402 1692 Circle
+5419 1719 Circle
+5435 1746 Circle
+5452 1773 Circle
+5468 1800 Circle
+5484 1827 Circle
+5501 1854 Circle
+5517 1880 Circle
+5534 1907 Circle
+5550 1934 Circle
+5567 1961 Circle
+5583 1988 Circle
+5599 2015 Circle
+5586 2042 Circle
+5570 2069 Circle
+5554 2096 Circle
+5537 2123 Circle
+5521 2150 Circle
+5504 2177 Circle
+5488 2204 Circle
+5471 2230 Circle
+5455 2257 Circle
+5438 2284 Circle
+5422 2311 Circle
+5405 2338 Circle
+5389 2365 Circle
+5372 2392 Circle
+5356 2419 Circle
+5340 2446 Circle
+5323 2473 Circle
+5307 2500 Circle
+5290 2527 Circle
+5274 2554 Circle
+5257 2580 Circle
+5241 2607 Circle
+5224 2634 Circle
+5208 2661 Circle
+5191 2688 Circle
+5175 2715 Circle
+5159 2742 Circle
+5142 2769 Circle
+5126 2796 Circle
+5109 2823 Circle
+5093 2850 Circle
+5076 2877 Circle
+5060 2903 Circle
+5043 2930 Circle
+5027 2957 Circle
+5010 2984 Circle
+4994 3011 Circle
+4977 3038 Circle
+4961 3065 Circle
+4945 3092 Circle
+4928 3119 Circle
+4912 3146 Circle
+4895 3173 Circle
+4879 3200 Circle
+4862 3226 Circle
+4846 3253 Circle
+4829 3280 Circle
+4813 3307 Circle
+4796 3334 Circle
+4780 3361 Circle
+4763 3388 Circle
+4747 3415 Circle
+4731 3442 Circle
+4714 3469 Circle
+4698 3496 Circle
+4681 3523 Circle
+4665 3549 Circle
+4648 3576 Circle
+4632 3603 Circle
+4615 3630 Circle
+4599 3657 Circle
+4582 3684 Circle
+4566 3711 Circle
+4550 3738 Circle
+4533 3765 Circle
+4517 3792 Circle
+4500 3819 Circle
+4484 3845 Circle
+4467 3872 Circle
+4451 3899 Circle
+4435 3926 Circle
+4418 3953 Circle
+4402 3980 Circle
+4385 4007 Circle
+4369 4034 Circle
+4352 4061 Circle
+4336 4088 Circle
+4319 4115 Circle
+4303 4142 Circle
+4287 4169 Circle
+4270 4195 Circle
+4254 4222 Circle
+4237 4246 Circle
+4221 4220 Circle
+4204 4194 Circle
+4188 4167 Circle
+4171 4140 Circle
+4155 4113 Circle
+4139 4086 Circle
+4122 4059 Circle
+4106 4032 Circle
+4089 4005 Circle
+4073 3978 Circle
+4056 3951 Circle
+4040 3924 Circle
+4023 3897 Circle
+4007 3870 Circle
+3991 3844 Circle
+3974 3817 Circle
+3958 3790 Circle
+3941 3763 Circle
+3925 3736 Circle
+3908 3709 Circle
+3892 3682 Circle
+3875 3655 Circle
+3859 3628 Circle
+3843 3601 Circle
+3826 3574 Circle
+3810 3547 Circle
+3793 3520 Circle
+3777 3494 Circle
+3760 3467 Circle
+3744 3440 Circle
+3727 3413 Circle
+3711 3386 Circle
+3694 3359 Circle
+3678 3332 Circle
+3662 3305 Circle
+3645 3278 Circle
+3629 3251 Circle
+3612 3224 Circle
+3596 3197 Circle
+3579 3171 Circle
+3563 3144 Circle
+3546 3117 Circle
+3530 3090 Circle
+3514 3063 Circle
+3497 3036 Circle
+3481 3009 Circle
+3464 2982 Circle
+3448 2955 Circle
+3431 2928 Circle
+3415 2901 Circle
+3398 2874 Circle
+3382 2847 Circle
+3366 2821 Circle
+3349 2794 Circle
+3333 2767 Circle
+3316 2740 Circle
+3300 2713 Circle
+3283 2686 Circle
+3267 2659 Circle
+3250 2632 Circle
+3234 2605 Circle
+3218 2578 Circle
+3201 2551 Circle
+3185 2524 Circle
+3168 2497 Circle
+3152 2471 Circle
+3135 2444 Circle
+3119 2417 Circle
+3102 2390 Circle
+3086 2363 Circle
+3070 2336 Circle
+3053 2309 Circle
+3037 2282 Circle
+3020 2255 Circle
+3004 2228 Circle
+2987 2201 Circle
+2971 2174 Circle
+2954 2147 Circle
+2938 2121 Circle
+2922 2094 Circle
+2905 2067 Circle
+2889 2040 Circle
+2872 2013 Circle
+2856 1986 Circle
+2839 1959 Circle
+2823 1932 Circle
+2806 1905 Circle
+2790 1878 Circle
+2773 1851 Circle
+2757 1824 Circle
+2741 1797 Circle
+2724 1771 Circle
+2708 1744 Circle
+2691 1717 Circle
+2675 1690 Circle
+2658 1663 Circle
+2642 1636 Circle
+2625 1609 Circle
+2609 1582 Circle
+2593 1555 Circle
+2576 1528 Circle
+2560 1501 Circle
+2543 1474 Circle
+2527 1448 Circle
+2510 1421 Circle
+2494 1394 Circle
+2477 1367 Circle
+2461 1340 Circle
+2445 1313 Circle
+2428 1286 Circle
+2412 1259 Circle
+2395 1232 Circle
+2379 1205 Circle
+2362 1178 Circle
+2346 1151 Circle
+2329 1124 Circle
+2313 1098 Circle
+2297 1071 Circle
+2280 1044 Circle
+2264 1017 Circle
+2247 990 Circle
+2231 963 Circle
+2214 936 Circle
+2198 909 Circle
+2202 882 Circle
+2219 855 Circle
+2235 841 Circle
+2251 868 Circle
+2268 895 Circle
+2284 922 Circle
+2301 949 Circle
+2317 976 Circle
+2334 1003 Circle
+2350 1030 Circle
+2367 1056 Circle
+2383 1083 Circle
+2400 1110 Circle
+2416 1137 Circle
+2432 1164 Circle
+2449 1191 Circle
+2465 1218 Circle
+2482 1245 Circle
+2498 1272 Circle
+2515 1299 Circle
+2531 1326 Circle
+2548 1353 Circle
+2564 1380 Circle
+2580 1407 Circle
+2597 1433 Circle
+2613 1460 Circle
+2630 1487 Circle
+2646 1514 Circle
+2663 1541 Circle
+2679 1568 Circle
+2696 1595 Circle
+2712 1622 Circle
+2729 1649 Circle
+2745 1676 Circle
+2761 1703 Circle
+2778 1730 Circle
+2794 1757 Circle
+2811 1784 Circle
+2827 1810 Circle
+2844 1837 Circle
+2860 1864 Circle
+2877 1891 Circle
+2893 1918 Circle
+2910 1945 Circle
+2926 1972 Circle
+2942 1999 Circle
+2959 2026 Circle
+2975 2053 Circle
+2992 2080 Circle
+3008 2107 Circle
+3025 2134 Circle
+3041 2161 Circle
+3058 2188 Circle
+3001 2177 Circle
+2921 2154 Circle
+2841 2132 Circle
+2761 2109 Circle
+2681 2087 Circle
+2601 2065 Circle
+2522 2042 Circle
+2442 2020 Circle
+2362 1998 Circle
+2282 1975 Circle
+2202 1953 Circle
+2236 1930 Circle
+2315 1908 Circle
+2395 1886 Circle
+2475 1863 Circle
+2555 1841 Circle
+2635 1819 Circle
+2715 1796 Circle
+2795 1774 Circle
+2875 1751 Circle
+2955 1729 Circle
+3034 1707 Circle
+3114 1684 Circle
+3194 1662 Circle
+3274 1640 Circle
+3354 1617 Circle
+3434 1595 Circle
+3514 1572 Circle
+3594 1550 Circle
+3673 1528 Circle
+3753 1505 Circle
+3833 1483 Circle
+3913 1461 Circle
+3993 1438 Circle
+4073 1416 Circle
+4153 1393 Circle
+4233 1371 Circle
+4312 1347 Circle
+4392 1324 Circle
+4472 1300 Circle
+4551 1277 Circle
+4631 1253 Circle
+4710 1230 Circle
+4790 1206 Circle
+4870 1183 Circle
+4949 1159 Circle
+5029 1136 Circle
+5108 1112 Circle
+5188 1088 Circle
+5268 1065 Circle
+5347 1041 Circle
+5427 1018 Circle
+5506 994 Circle
+5586 971 Circle
+5562 947 Circle
+5483 924 Circle
+5403 900 Circle
+5324 877 Circle
+5244 853 Circle
+5164 841 Circle
+5085 865 Circle
+5005 888 Circle
+4925 912 Circle
+4846 935 Circle
+4766 959 Circle
+4687 982 Circle
+4607 1006 Circle
+4527 1029 Circle
+4448 1053 Circle
+4368 1077 Circle
+4288 1100 Circle
+4209 1124 Circle
+4129 1147 Circle
+4050 1171 Circle
+3970 1194 Circle
+3890 1218 Circle
+3811 1241 Circle
+3731 1265 Circle
+3651 1288 Circle
+3572 1312 Circle
+3488 1323 Circle
+3395 1311 Circle
+3302 1299 Circle
+3210 1287 Circle
+3117 1275 Circle
+3024 1263 Circle
+2931 1251 Circle
+2839 1239 Circle
+2746 1227 Circle
+2653 1215 Circle
+2561 1203 Circle
+2468 1191 Circle
+2375 1179 Circle
+2283 1167 Circle
+2190 1155 Circle
+2255 1143 Circle
+2348 1132 Circle
+2441 1120 Circle
+2533 1108 Circle
+2626 1096 Circle
+2718 1084 Circle
+2811 1072 Circle
+2904 1060 Circle
+2996 1048 Circle
+3089 1036 Circle
+3182 1024 Circle
+3274 1012 Circle
+3367 1000 Circle
+3459 988 Circle
+3552 976 Circle
+3645 964 Circle
+3737 952 Circle
+3830 940 Circle
+3923 928 Circle
+4015 917 Circle
+4108 905 Circle
+4200 893 Circle
+4293 881 Circle
+4384 860 Circle
+4473 837 Circle
+4563 863 Circle
+4652 890 Circle
+4741 916 Circle
+4831 943 Circle
+4920 969 Circle
+5009 996 Circle
+5098 1023 Circle
+5188 1049 Circle
+5277 1076 Circle
+5366 1103 Circle
+5456 1129 Circle
+5545 1156 Circle
+5598 1182 Circle
+5509 1209 Circle
+5419 1236 Circle
+5330 1262 Circle
+5241 1289 Circle
+5152 1315 Circle
+5063 1342 Circle
+4973 1369 Circle
+4884 1395 Circle
+4795 1422 Circle
+4706 1449 Circle
+4616 1475 Circle
+4527 1502 Circle
+4438 1528 Circle
+4349 1555 Circle
+4259 1582 Circle
+4170 1611 Circle
+4082 1639 Circle
+3993 1668 Circle
+3904 1696 Circle
+3815 1724 Circle
+3727 1753 Circle
+3638 1781 Circle
+3549 1810 Circle
+3461 1838 Circle
+3372 1867 Circle
+3283 1895 Circle
+3194 1924 Circle
+3106 1952 Circle
+3017 1981 Circle
+2928 2009 Circle
+2839 2037 Circle
+2751 2066 Circle
+2662 2094 Circle
+2573 2123 Circle
+2484 2151 Circle
+2396 2180 Circle
+2307 2208 Circle
+2218 2237 Circle
+2225 2265 Circle
+2314 2294 Circle
+2402 2322 Circle
+2491 2350 Circle
+2580 2379 Circle
+2669 2407 Circle
+2758 2436 Circle
+2846 2464 Circle
+2935 2493 Circle
+3024 2521 Circle
+3113 2549 Circle
+3202 2577 Circle
+3291 2605 Circle
+3380 2633 Circle
+3469 2662 Circle
+3558 2690 Circle
+3647 2718 Circle
+3736 2746 Circle
+3825 2774 Circle
+3913 2802 Circle
+4002 2831 Circle
+4091 2859 Circle
+4180 2887 Circle
+4269 2915 Circle
+4358 2943 Circle
+4447 2971 Circle
+4536 2999 Circle
+4625 3028 Circle
+4714 3056 Circle
+4803 3084 Circle
+4892 3112 Circle
+4981 3140 Circle
+5069 3168 Circle
+5158 3196 Circle
+5247 3225 Circle
+5336 3253 Circle
+5425 3281 Circle
+5514 3309 Circle
+5603 3337 Circle
+5540 3365 Circle
+5451 3393 Circle
+5362 3422 Circle
+5273 3450 Circle
+5184 3478 Circle
+5095 3506 Circle
+5006 3534 Circle
+4918 3562 Circle
+4829 3590 Circle
+4740 3619 Circle
+4651 3647 Circle
+4562 3675 Circle
+4473 3703 Circle
+4384 3731 Circle
+4295 3759 Circle
+4206 3787 Circle
+4117 3816 Circle
+4028 3844 Circle
+3940 3872 Circle
+3851 3900 Circle
+3762 3928 Circle
+3673 3956 Circle
+3584 3984 Circle
+3495 4013 Circle
+3406 4041 Circle
+3317 4069 Circle
+3228 4097 Circle
+3139 4125 Circle
+3050 4153 Circle
+2962 4181 Circle
+2873 4210 Circle
+2784 4238 Circle
+2695 4231 Circle
+2606 4203 Circle
+2517 4175 Circle
+2428 4147 Circle
+2339 4119 Circle
+2250 4091 Circle
+2193 4062 Circle
+2282 4034 Circle
+2371 4006 Circle
+2460 3978 Circle
+2549 3950 Circle
+2637 3922 Circle
+2726 3894 Circle
+2815 3865 Circle
+2904 3837 Circle
+2993 3809 Circle
+3082 3781 Circle
+3171 3753 Circle
+3260 3725 Circle
+3349 3697 Circle
+3438 3668 Circle
+3527 3640 Circle
+3616 3612 Circle
+3705 3584 Circle
+3794 3556 Circle
+3883 3528 Circle
+3972 3500 Circle
+4060 3471 Circle
+4149 3443 Circle
+4238 3415 Circle
+4327 3387 Circle
+4416 3359 Circle
+4505 3331 Circle
+4594 3303 Circle
+4683 3274 Circle
+4772 3246 Circle
+4861 3218 Circle
+4950 3190 Circle
+5039 3162 Circle
+5128 3134 Circle
+5217 3106 Circle
+5306 3078 Circle
+5395 3049 Circle
+5484 3021 Circle
+5573 2993 Circle
+5570 2965 Circle
+5482 2937 Circle
+5393 2909 Circle
+5304 2881 Circle
+5215 2852 Circle
+5126 2824 Circle
+5037 2796 Circle
+4948 2768 Circle
+4859 2740 Circle
+4770 2712 Circle
+4681 2684 Circle
+4593 2655 Circle
+4504 2627 Circle
+4415 2599 Circle
+4326 2571 Circle
+4237 2543 Circle
+4148 2515 Circle
+4059 2487 Circle
+3970 2459 Circle
+3881 2431 Circle
+3792 2403 Circle
+3703 2375 Circle
+3614 2347 Circle
+3525 2319 Circle
+3436 2291 Circle
+3346 2264 Circle
+3257 2237 Circle
+3168 2209 Circle
+3079 2182 Circle
+2989 2155 Circle
+2900 2128 Circle
+2811 2100 Circle
+2721 2073 Circle
+2632 2046 Circle
+2543 2018 Circle
+2454 1991 Circle
+2364 1964 Circle
+2275 1936 Circle
+2187 1909 Circle
+2257 1882 Circle
+2347 1855 Circle
+2436 1827 Circle
+2525 1800 Circle
+2614 1773 Circle
+2704 1745 Circle
+2793 1718 Circle
+2882 1691 Circle
+2971 1663 Circle
+3061 1636 Circle
+3150 1609 Circle
+3239 1582 Circle
+3328 1554 Circle
+3418 1527 Circle
+3507 1500 Circle
+3596 1472 Circle
+3685 1445 Circle
+3775 1418 Circle
+3864 1390 Circle
+3953 1363 Circle
+4042 1336 Circle
+4132 1309 Circle
+4221 1281 Circle
+4310 1254 Circle
+4399 1227 Circle
+4489 1199 Circle
+4578 1172 Circle
+4667 1145 Circle
+4757 1118 Circle
+4846 1090 Circle
+4936 1071 Circle
+5028 1072 Circle
+5120 1072 Circle
+5212 1072 Circle
+5304 1072 Circle
+5396 1072 Circle
+5488 1073 Circle
+5580 1073 Circle
+5562 1073 Circle
+5470 1073 Circle
+5378 1074 Circle
+5285 1074 Circle
+5193 1074 Circle
+5101 1074 Circle
+5009 1074 Circle
+4917 1075 Circle
+4825 1075 Circle
+4733 1075 Circle
+4641 1075 Circle
+4549 1075 Circle
+4457 1076 Circle
+4365 1076 Circle
+4273 1076 Circle
+4181 1076 Circle
+4089 1076 Circle
+3997 1077 Circle
+3905 1077 Circle
+3813 1077 Circle
+3721 1077 Circle
+3629 1078 Circle
+3537 1078 Circle
+3445 1078 Circle
+3353 1078 Circle
+3261 1078 Circle
+3169 1079 Circle
+3077 1079 Circle
+2984 1079 Circle
+2892 1079 Circle
+2800 1079 Circle
+2708 1080 Circle
+2616 1080 Circle
+2524 1080 Circle
+2435 1068 Circle
+2349 1042 Circle
+2263 1017 Circle
+2184 992 Circle
+2265 967 Circle
+2351 942 Circle
+2437 917 Circle
+2523 892 Circle
+2610 867 Circle
+2696 842 Circle
+2782 853 Circle
+2868 878 Circle
+2954 903 Circle
+3041 928 Circle
+3127 953 Circle
+3213 979 Circle
+3299 1004 Circle
+3385 1029 Circle
+3471 1054 Circle
+3558 1079 Circle
+3644 1104 Circle
+3730 1129 Circle
+3816 1154 Circle
+3902 1179 Circle
+3989 1204 Circle
+4075 1229 Circle
+4161 1254 Circle
+4247 1279 Circle
+4333 1304 Circle
+4420 1330 Circle
+4506 1355 Circle
+4592 1380 Circle
+4678 1405 Circle
+4764 1430 Circle
+4851 1455 Circle
+4937 1480 Circle
+5023 1505 Circle
+5109 1530 Circle
+5195 1555 Circle
+5281 1580 Circle
+5368 1605 Circle
+5454 1630 Circle
+5540 1655 Circle
+5604 1680 Circle
+5518 1706 Circle
+5432 1731 Circle
+5346 1756 Circle
+5259 1781 Circle
+5173 1806 Circle
+5087 1831 Circle
+5001 1856 Circle
+4915 1881 Circle
+4828 1906 Circle
+4742 1931 Circle
+4656 1956 Circle
+4570 1981 Circle
+4483 2007 Circle
+4397 2032 Circle
+4311 2057 Circle
+4225 2082 Circle
+4142 2108 Circle
+4123 2151 Circle
+4104 2195 Circle
+4085 2238 Circle
+4067 2281 Circle
+4048 2325 Circle
+4029 2368 Circle
+4011 2412 Circle
+3992 2455 Circle
+3973 2498 Circle
+3954 2542 Circle
+3936 2585 Circle
+3917 2628 Circle
+3898 2672 Circle
+3879 2715 Circle
+3861 2759 Circle
+3842 2802 Circle
+3823 2845 Circle
+3804 2889 Circle
+3786 2932 Circle
+3767 2975 Circle
+3748 3019 Circle
+3730 3062 Circle
+3711 3106 Circle
+3692 3149 Circle
+3673 3192 Circle
+3655 3236 Circle
+3636 3279 Circle
+3617 3323 Circle
+3598 3366 Circle
+3580 3409 Circle
+3561 3453 Circle
+3542 3496 Circle
+3523 3539 Circle
+3505 3582 Circle
+3486 3626 Circle
+3467 3669 Circle
+3448 3712 Circle
+3429 3756 Circle
+3411 3799 Circle
+3392 3842 Circle
+3373 3886 Circle
+3354 3929 Circle
+3336 3972 Circle
+3317 4015 Circle
+3298 4059 Circle
+3279 4102 Circle
+3261 4145 Circle
+3242 4189 Circle
+3223 4232 Circle
+3204 4228 Circle
+3185 4185 Circle
+3167 4141 Circle
+3148 4098 Circle
+3129 4055 Circle
+3110 4012 Circle
+3092 3968 Circle
+3073 3925 Circle
+3054 3882 Circle
+3035 3838 Circle
+3017 3795 Circle
+2998 3752 Circle
+2979 3708 Circle
+2960 3665 Circle
+2941 3622 Circle
+2923 3579 Circle
+2904 3535 Circle
+2885 3492 Circle
+2866 3449 Circle
+2848 3405 Circle
+2829 3362 Circle
+2810 3319 Circle
+2791 3275 Circle
+2773 3232 Circle
+2754 3189 Circle
+2735 3145 Circle
+2716 3102 Circle
+2697 3059 Circle
+2679 3016 Circle
+2660 2972 Circle
+2641 2929 Circle
+2622 2886 Circle
+2604 2842 Circle
+2585 2799 Circle
+2566 2756 Circle
+2547 2712 Circle
+2529 2669 Circle
+2510 2626 Circle
+2491 2583 Circle
+2472 2539 Circle
+2453 2496 Circle
+2435 2453 Circle
+2416 2409 Circle
+2398 2366 Circle
+2379 2323 Circle
+2360 2279 Circle
+2342 2236 Circle
+2323 2193 Circle
+2304 2149 Circle
+2286 2106 Circle
+2267 2063 Circle
+2248 2019 Circle
+2230 1976 Circle
+2211 1933 Circle
+2193 1889 Circle
+2209 1846 Circle
+2228 1803 Circle
+2246 1759 Circle
+2265 1716 Circle
+2283 1673 Circle
+2302 1629 Circle
+2321 1586 Circle
+2339 1543 Circle
+2358 1500 Circle
+2377 1456 Circle
+2395 1413 Circle
+2414 1370 Circle
+2432 1326 Circle
+2451 1283 Circle
+2470 1240 Circle
+2478 1214 Circle
+2460 1233 Circle
+2442 1252 Circle
+2424 1271 Circle
+2406 1290 Circle
+2389 1308 Circle
+2371 1327 Circle
+2353 1346 Circle
+2335 1365 Circle
+2317 1384 Circle
+2299 1403 Circle
+2282 1421 Circle
+2264 1440 Circle
+2246 1459 Circle
+2228 1478 Circle
+2210 1497 Circle
+2193 1516 Circle
+2209 1534 Circle
+2226 1553 Circle
+2244 1572 Circle
+2262 1591 Circle
+2280 1610 Circle
+2298 1629 Circle
+2316 1647 Circle
+2334 1666 Circle
+2352 1685 Circle
+2369 1704 Circle
+2387 1723 Circle
+2405 1742 Circle
+2423 1761 Circle
+2441 1780 Circle
+2459 1799 Circle
+2477 1818 Circle
+2495 1837 Circle
+2512 1856 Circle
+2530 1875 Circle
+2548 1893 Circle
+2566 1912 Circle
+2584 1931 Circle
+2602 1950 Circle
+2620 1969 Circle
+2638 1988 Circle
+2655 2007 Circle
+2673 2026 Circle
+2691 2045 Circle
+2709 2064 Circle
+2727 2083 Circle
+2745 2102 Circle
+2763 2121 Circle
+2781 2140 Circle
+2798 2158 Circle
+2816 2177 Circle
+2834 2196 Circle
+2852 2215 Circle
+2870 2234 Circle
+2888 2253 Circle
+2906 2272 Circle
+2924 2291 Circle
+2941 2310 Circle
+2959 2329 Circle
+2977 2348 Circle
+2995 2367 Circle
+3013 2386 Circle
+3031 2404 Circle
+3049 2423 Circle
+3067 2442 Circle
+3085 2461 Circle
+3102 2480 Circle
+3120 2499 Circle
+3138 2518 Circle
+3156 2537 Circle
+3174 2556 Circle
+3192 2575 Circle
+3210 2594 Circle
+3228 2612 Circle
+3246 2631 Circle
+3264 2650 Circle
+3282 2669 Circle
+3299 2688 Circle
+3317 2707 Circle
+3335 2726 Circle
+3353 2746 Circle
+3371 2765 Circle
+3389 2784 Circle
+3407 2803 Circle
+3425 2822 Circle
+3443 2841 Circle
+3461 2860 Circle
+3479 2879 Circle
+3497 2898 Circle
+3515 2917 Circle
+3532 2936 Circle
+3550 2955 Circle
+3568 2975 Circle
+3586 2994 Circle
+3604 3013 Circle
+3622 3032 Circle
+3640 3051 Circle
+3658 3070 Circle
+3676 3089 Circle
+3694 3108 Circle
+3712 3127 Circle
+3730 3146 Circle
+3748 3165 Circle
+3766 3184 Circle
+3783 3204 Circle
+3801 3223 Circle
+3819 3242 Circle
+3837 3261 Circle
+3855 3280 Circle
+3875 3299 Circle
+3895 3318 Circle
+3916 3336 Circle
+3936 3355 Circle
+3957 3373 Circle
+3977 3392 Circle
+3998 3410 Circle
+4018 3429 Circle
+4039 3447 Circle
+4059 3466 Circle
+4080 3484 Circle
+4100 3503 Circle
+4121 3521 Circle
+4142 3540 Circle
+4162 3558 Circle
+4183 3577 Circle
+4203 3595 Circle
+4224 3614 Circle
+4244 3632 Circle
+4265 3651 Circle
+4285 3669 Circle
+4306 3688 Circle
+4326 3706 Circle
+4347 3725 Circle
+4367 3743 Circle
+4388 3762 Circle
+4408 3780 Circle
+4429 3799 Circle
+4449 3817 Circle
+4470 3836 Circle
+4490 3854 Circle
+4511 3873 Circle
+4532 3891 Circle
+4552 3909 Circle
+4573 3928 Circle
+4593 3946 Circle
+4614 3965 Circle
+4634 3983 Circle
+4655 4002 Circle
+4675 4020 Circle
+4696 4039 Circle
+4716 4057 Circle
+4737 4076 Circle
+4757 4094 Circle
+4778 4113 Circle
+4798 4131 Circle
+4819 4150 Circle
+4840 4168 Circle
+4860 4187 Circle
+4881 4205 Circle
+4901 4224 Circle
+4922 4242 Circle
+4942 4233 Circle
+4963 4214 Circle
+4983 4196 Circle
+5004 4177 Circle
+5024 4159 Circle
+5045 4140 Circle
+5065 4122 Circle
+5086 4103 Circle
+5107 4085 Circle
+5127 4066 Circle
+5148 4048 Circle
+5168 4029 Circle
+5189 4011 Circle
+5209 3992 Circle
+5230 3974 Circle
+5250 3955 Circle
+5271 3937 Circle
+5291 3918 Circle
+5312 3900 Circle
+5332 3881 Circle
+5353 3863 Circle
+5373 3844 Circle
+5394 3826 Circle
+5414 3807 Circle
+5435 3789 Circle
+5455 3771 Circle
+5475 3752 Circle
+5496 3734 Circle
+5516 3716 Circle
+5537 3697 Circle
+5557 3679 Circle
+5577 3660 Circle
+5598 3642 Circle
+5586 3624 Circle
+5566 3605 Circle
+5545 3587 Circle
+5525 3568 Circle
+5505 3550 Circle
+5484 3532 Circle
+5464 3513 Circle
+5444 3495 Circle
+5423 3477 Circle
+5403 3458 Circle
+5383 3440 Circle
+5363 3421 Circle
+5342 3403 Circle
+5322 3385 Circle
+5302 3366 Circle
+5281 3348 Circle
+5261 3330 Circle
+5241 3311 Circle
+5220 3293 Circle
+5200 3274 Circle
+5180 3256 Circle
+5159 3238 Circle
+5139 3219 Circle
+5119 3201 Circle
+5098 3182 Circle
+5078 3164 Circle
+5058 3146 Circle
+5037 3127 Circle
+5017 3109 Circle
+4997 3091 Circle
+4976 3072 Circle
+4956 3054 Circle
+4936 3035 Circle
+4915 3017 Circle
+4895 2999 Circle
+4875 2980 Circle
+4854 2962 Circle
+4834 2944 Circle
+4814 2925 Circle
+4793 2907 Circle
+4773 2888 Circle
+4753 2870 Circle
+4732 2852 Circle
+4712 2833 Circle
+4692 2815 Circle
+4671 2797 Circle
+4651 2778 Circle
+4631 2760 Circle
+4610 2741 Circle
+4590 2723 Circle
+4570 2705 Circle
+4549 2686 Circle
+4529 2668 Circle
+4509 2649 Circle
+4488 2631 Circle
+4468 2613 Circle
+4448 2594 Circle
+4427 2576 Circle
+4407 2558 Circle
+4387 2539 Circle
+4366 2521 Circle
+4346 2502 Circle
+4326 2484 Circle
+4305 2466 Circle
+4285 2447 Circle
+4265 2429 Circle
+4244 2411 Circle
+4224 2392 Circle
+4204 2374 Circle
+4183 2355 Circle
+4163 2337 Circle
+4143 2319 Circle
+4122 2300 Circle
+4102 2282 Circle
+4082 2263 Circle
+4061 2245 Circle
+4041 2227 Circle
+4021 2208 Circle
+4000 2190 Circle
+3980 2172 Circle
+3960 2153 Circle
+3939 2135 Circle
+3919 2116 Circle
+3899 2098 Circle
+3878 2080 Circle
+3858 2061 Circle
+3838 2043 Circle
+3817 2025 Circle
+3797 2006 Circle
+3777 1988 Circle
+3756 1969 Circle
+3736 1951 Circle
+3716 1933 Circle
+3695 1914 Circle
+3675 1896 Circle
+3655 1877 Circle
+3634 1859 Circle
+3614 1841 Circle
+3594 1822 Circle
+3573 1804 Circle
+3553 1786 Circle
+3532 1767 Circle
+3512 1749 Circle
+3492 1730 Circle
+3471 1712 Circle
+3451 1694 Circle
+3431 1675 Circle
+3410 1657 Circle
+3390 1639 Circle
+3370 1620 Circle
+3350 1602 Circle
+3329 1583 Circle
+3309 1565 Circle
+3289 1547 Circle
+3268 1528 Circle
+3248 1510 Circle
+3228 1491 Circle
+3208 1473 Circle
+3187 1455 Circle
+3167 1436 Circle
+3147 1418 Circle
+3126 1399 Circle
+3106 1381 Circle
+3086 1363 Circle
+3066 1344 Circle
+3045 1326 Circle
+3025 1308 Circle
+3005 1289 Circle
+2984 1271 Circle
+2964 1252 Circle
+2944 1234 Circle
+2923 1216 Circle
+2903 1197 Circle
+2883 1179 Circle
+2863 1160 Circle
+2842 1142 Circle
+2822 1124 Circle
+2802 1105 Circle
+2781 1087 Circle
+2761 1069 Circle
+2741 1050 Circle
+2720 1032 Circle
+2700 1013 Circle
+2680 995 Circle
+2660 977 Circle
+2639 958 Circle
+2619 940 Circle
+2599 921 Circle
+2578 903 Circle
+2558 885 Circle
+2538 866 Circle
+2518 848 Circle
+2497 843 Circle
+2477 862 Circle
+2457 880 Circle
+2436 898 Circle
+2416 917 Circle
+2396 935 Circle
+2375 954 Circle
+2355 972 Circle
+2335 990 Circle
+2315 1009 Circle
+2294 1027 Circle
+2274 1046 Circle
+2254 1064 Circle
+2233 1082 Circle
+2213 1101 Circle
+2193 1119 Circle
+2209 1137 Circle
+2230 1156 Circle
+2250 1174 Circle
+2270 1193 Circle
+2291 1211 Circle
+2311 1229 Circle
+2331 1248 Circle
+2352 1266 Circle
+2372 1285 Circle
+2392 1303 Circle
+2412 1321 Circle
+2433 1340 Circle
+2453 1358 Circle
+2473 1377 Circle
+2494 1395 Circle
+2514 1413 Circle
+2534 1432 Circle
+2555 1450 Circle
+2575 1468 Circle
+2595 1487 Circle
+2615 1505 Circle
+2636 1524 Circle
+2656 1542 Circle
+2676 1560 Circle
+2697 1579 Circle
+2717 1597 Circle
+2737 1616 Circle
+2758 1634 Circle
+2778 1652 Circle
+2798 1671 Circle
+2818 1689 Circle
+2839 1707 Circle
+2859 1726 Circle
+2879 1744 Circle
+2900 1763 Circle
+2920 1781 Circle
+2940 1799 Circle
+2960 1818 Circle
+2981 1836 Circle
+3001 1855 Circle
+3021 1873 Circle
+3042 1891 Circle
+3062 1909 Circle
+3083 1931 Circle
+3106 1961 Circle
+3128 1991 Circle
+3150 2021 Circle
+3171 2051 Circle
+3193 2081 Circle
+3215 2110 Circle
+3237 2140 Circle
+3259 2170 Circle
+3281 2200 Circle
+3302 2229 Circle
+3324 2259 Circle
+3346 2289 Circle
+3368 2319 Circle
+3390 2349 Circle
+3412 2378 Circle
+3433 2408 Circle
+3455 2438 Circle
+3477 2468 Circle
+3499 2498 Circle
+3521 2527 Circle
+3542 2557 Circle
+3564 2587 Circle
+3586 2617 Circle
+3608 2647 Circle
+3630 2676 Circle
+3652 2706 Circle
+3673 2736 Circle
+3695 2766 Circle
+3717 2796 Circle
+3739 2825 Circle
+3761 2855 Circle
+3782 2885 Circle
+3804 2915 Circle
+3826 2944 Circle
+3848 2974 Circle
+3870 3004 Circle
+3892 3034 Circle
+3913 3064 Circle
+3935 3093 Circle
+3957 3123 Circle
+3979 3153 Circle
+4001 3183 Circle
+4022 3213 Circle
+4044 3243 Circle
+4066 3272 Circle
+4088 3302 Circle
+4110 3332 Circle
+4131 3362 Circle
+4153 3392 Circle
+4175 3422 Circle
+4197 3452 Circle
+4218 3481 Circle
+4240 3511 Circle
+4262 3541 Circle
+4284 3571 Circle
+4306 3601 Circle
+4327 3631 Circle
+4349 3661 Circle
+4371 3690 Circle
+4393 3720 Circle
+4415 3750 Circle
+4436 3780 Circle
+4458 3810 Circle
+4480 3840 Circle
+4502 3870 Circle
+4523 3899 Circle
+4545 3929 Circle
+4567 3959 Circle
+4589 3989 Circle
+4611 4019 Circle
+4632 4049 Circle
+4654 4078 Circle
+4676 4108 Circle
+4698 4138 Circle
+4719 4168 Circle
+4741 4198 Circle
+4763 4228 Circle
+4785 4240 Circle
+4807 4210 Circle
+4828 4181 Circle
+4850 4151 Circle
+4872 4121 Circle
+4894 4091 Circle
+4916 4061 Circle
+4937 4031 Circle
+4959 4001 Circle
+4981 3972 Circle
+5003 3942 Circle
+5024 3912 Circle
+5046 3882 Circle
+5068 3852 Circle
+5090 3822 Circle
+5112 3792 Circle
+5133 3763 Circle
+5155 3733 Circle
+5177 3703 Circle
+5199 3673 Circle
+5220 3643 Circle
+5242 3613 Circle
+5264 3583 Circle
+5286 3554 Circle
+5308 3524 Circle
+5329 3494 Circle
+5351 3464 Circle
+5373 3434 Circle
+5395 3404 Circle
+5416 3374 Circle
+5438 3345 Circle
+5460 3315 Circle
+5482 3285 Circle
+5504 3255 Circle
+5525 3225 Circle
+5547 3195 Circle
+5569 3165 Circle
+5591 3136 Circle
+5592 3106 Circle
+5570 3076 Circle
+5549 3046 Circle
+5527 3016 Circle
+5505 2986 Circle
+5483 2957 Circle
+5461 2927 Circle
+5440 2897 Circle
+5418 2867 Circle
+5396 2837 Circle
+5374 2807 Circle
+5353 2777 Circle
+5331 2748 Circle
+5309 2718 Circle
+5287 2688 Circle
+5265 2658 Circle
+5244 2628 Circle
+5222 2598 Circle
+5200 2569 Circle
+5178 2539 Circle
+5156 2509 Circle
+5135 2479 Circle
+5113 2449 Circle
+5091 2419 Circle
+5069 2390 Circle
+5048 2360 Circle
+5026 2330 Circle
+5004 2300 Circle
+4982 2270 Circle
+4960 2240 Circle
+4939 2210 Circle
+4917 2181 Circle
+4895 2151 Circle
+4873 2121 Circle
+4852 2091 Circle
+4830 2061 Circle
+4808 2031 Circle
+4786 2002 Circle
+4764 1972 Circle
+4743 1942 Circle
+4721 1912 Circle
+4699 1882 Circle
+4677 1852 Circle
+4656 1822 Circle
+4634 1793 Circle
+4612 1763 Circle
+4590 1733 Circle
+4568 1703 Circle
+4547 1673 Circle
+4525 1643 Circle
+4503 1614 Circle
+4481 1584 Circle
+4459 1554 Circle
+4438 1524 Circle
+LTw
+% End plot #1
+2.000 UL
+LTb
+LCb setrgbcolor
+[] 0 setdash
+1.000 UL
+LTb
+2059 4379 N
+0 -3675 V
+3675 0 V
+0 3675 V
+-3675 0 V
+Z stroke
+1.000 UP
+1.000 UL
+LTb
+stroke
+grestore
+end
+showpage
+%%Page: 2 2
+gnudict begin
+gsave
+doclip
+50 50 translate
+0.050 0.050 scale
+0 setgray
+newpath
+stroke
+grestore
+end
+showpage
+%%Trailer

@@ -2,7 +2,7 @@
 
 %\documentclass[a4paper,10pt,rmp,onecolumn,secnumarabic,numerical,balancelastpage,amsmath,amssymb,hyperref=pdftex,superscriptaddress]{article}
 
-\documentclass[10pt,a4paper,apm,twocolumn,secnumarabic,numerical,balancelastpage,nofootinbib,superscriptaddress]{revtex4-2}
+\documentclass[10pt,a4paper,aps,twocolumn,secnumarabic,numerical,balancelastpage,nofootinbib,superscriptaddress]{revtex4-2}
 
 \usepackage[T1]{fontenc} % Vise norske tegn
 \usepackage{ulem} % for \uuline (double underline)
@@ -10,7 +10,7 @@
 \usepackage{babel} % Tilpasning til norsk
 \usepackage{graphicx} % For å inkludere grafikk
 \usepackage{epstopdf}
-\usepackage{caption}
+%\usepackage{caption}
 \usepackage{subcaption}
 \usepackage{bbm}
 %\captionsetup[figure]{name=Figure}
@@ -65,24 +65,62 @@
 
 \maketitle
 
-	\section{one particle}
+	\section{Method}
 	
+		The implementation of a verlet algorithm to simulate a two dimensional gas inside a rectangular box. Each particle has a position and velocity which is updated according to
+		\begin{align}
+			\va*{r}_i(t+\Delta t)&=\va*{r}_i(t)+\va*{v}_i(t)\Delta t+\frac{1}{2}\frac{\va*{f}_i(t)}{m}\Delta t^2\\
+			\va*{v}_i(t+\Delta t)&=\va*{v}_i(t) +\frac{\va*{f}_i(t)+\va*{f}_i(t+\Delta t)}{2m}\Delta t
+		\end{align}
+		where the force
+		\begin{align}
+			\va*{f}_i&=-\pdv{V_w}{\va*{r}_i}-\sum_{j\neq i}\pdv{V(r_{ij})}{\va*{r}_i}
+		\end{align}
+		is given by the wall potential $V_w=V_x+V_y$ and the particle-particle potential $V(r_{ij})$
+		\begin{align}
+			V(r_{ij})&=\epsilon \left [\left (\frac{a}{r_{ij}}\right )^{12}-2\left (\frac{a}{r_{ij}}\right )^6\right ]\\
+			V_x(\va*{r}_i)&=
+			\begin{cases}
+				\frac{K}{2}(x_i-L_x)^2	&	\text{if }x >L_x\\
+				\frac{K}{2}x_i^2	&	\text{if }x < 0
+			\end{cases}\\
+			V_y(\va*{r}_i)&=
+			\begin{cases}
+				\frac{K}{2}(y_i-L_y)^2	&	\text{if }y >L_y\\
+				\frac{K}{2}y_i^2	&	\text{if }y < 0
+			\end{cases}
+		\end{align}
+		where $\epsilon$ is the interaction parameter for the particles, $L_x$ and $L_y$ are the side length of the box, $K$ is the parameter which determines the "softness" of the walls and $a$ is the point where the switch between repulsive and attractive force between particles change, if the distance between the two particles $r_{ij}=a$ then we can say the two particles touch, so $a$ can be seen as the diameter of the particles. In order to make implementation easier $a=1$. Now the force between particles is
+		\begin{align}
+			\pdv{V(r_{ij})}{\va*{r}_i}&=12\epsilon\left [-\left (\frac{1}{r_{ij}}\right )^{13}+\left (\frac{1}{r_{ij}}\right )^7\right ].
+		\end{align}
+		The force from the walls is
+		\begin{align}
+			\pdv{V_x(x_i)}{x_i}&=
+			\begin{cases}
+				K(x_i-L_x)	&	\text{if }x > L_x\\
+				Kx_i	&	\text{if } x < 0
+			\end{cases}
+		\end{align}
+		with the same in the $y$ direction. We also choose the mass $m=1$ so the force becomes equal to the acceleration. This is also done to simplify the implementation.
+	\section{one particle}
+		
 	\begin{figure*}[htb]
 		\centering
 		\begin{subfigure}{.45\textwidth}
-			\scalebox{0.6}{\input{"./figures/P_01_0000.tex"}}
+			\hspace*{-2.6cm}\scalebox{0.9}{\input{"./figures/P_001_0001.tex"}}
 			\caption{Path of one particle with $\Delta t=0.001$}
 		\end{subfigure}
 		\begin{subfigure}{.45\textwidth}
-			\scalebox{0.6}{\input{"./figures/P_01_0005.tex"}}
+			\hspace*{-2.6cm}\scalebox{0.9}{\input{"./figures/P_001_0005.tex"}}
 			\caption{Path of one particle with $\Delta t=0.005$}
 		\end{subfigure}
 		\begin{subfigure}{.45\textwidth}
-			\scalebox{0.6}{\input{"./figures/P_01_0010.tex"}}
+			\hspace*{-2.6cm}\scalebox{0.9}{\input{"./figures/P_001_0010.tex"}}
 			\caption{Path of one particle with $\Delta t=0.010$}
 		\end{subfigure}
 		\begin{subfigure}{.45\textwidth}
-			\scalebox{0.6}{\input{"./figures/P_01_0020.tex"}}
+			\hspace*{-2.6cm}\scalebox{0.9}{\input{"./figures/P_001_0020.tex"}}
 			\caption{Path of one particle with $\Delta t=0.020$}
 		\end{subfigure}
 		\caption{Path of one particle with different values of time step $dt$}
@@ -91,23 +129,125 @@
 	\begin{figure*}[htb]
 		\centering
 		\begin{subfigure}{.45\textwidth}
-			\scalebox{0.6}{\input{"./figures/E_01_0000.tex"}}
+			\scalebox{0.6}{\input{"./figures/E_001_0001.tex"}}
 			\caption{Energy drift with $\Delta t=0.001$}
 		\end{subfigure}
 		\begin{subfigure}{.45\textwidth}
-			\scalebox{0.6}{\input{"./figures/E_01_0005.tex"}}
+			\scalebox{0.6}{\input{"./figures/E_001_0005.tex"}}
 			\caption{Energy drift with $\Delta t=0.005$}
 		\end{subfigure}
 		\begin{subfigure}{.45\textwidth}
-			\scalebox{0.6}{\input{"./figures/E_01_0010.tex"}}
+			\scalebox{0.6}{\input{"./figures/E_001_0010.tex"}}
 			\caption{Energy drift with $\Delta t=0.010$}
 		\end{subfigure}
 		\begin{subfigure}{.45\textwidth}
-			\scalebox{0.6}{\input{"./figures/E_01_0020.tex"}}
+			\scalebox{0.6}{\input{"./figures/E_001_0020.tex"}}
 			\caption{Energy drift with $\Delta t=0.020$}
 		\end{subfigure}
 		\caption{Energy drift of one particle with different values of time step $dt$}
 	\end{figure*}
+	
+	\section{Multiple particles}
+	
+		For all the simulations beyond 1 particle the time step $\Delta t =0.001$, this is because of the stability it provides and the short run time for even very large systems, in tests of time at 40 and particles above 100 the run time does not exceed a few seconds. In the case of two particles the start positions and velocities are chosen, but in larger systems this is done randomly with the velocities such that each particle starts with a kinetic energy of the EPP value. The box size is also increased to $40\times40$
+		\begin{figure*}[htb]
+			\centering
+			\begin{subfigure}{.45\textwidth}
+				\hspace*{-2cm}\scalebox{0.8}{\input{"./figures/P_002_005.tex"}}
+				\caption{Path of two particles, with collisions}
+			\end{subfigure}
+			\begin{subfigure}{.45\textwidth}
+				\scalebox{0.6}{\input{"./figures/E_002_005.tex"}}
+				\caption{Total energy per particle of the two particles as the collisions happen}
+			\end{subfigure}
+			\caption{Energy drift of one particle with different values of time step $dt$}
+		\end{figure*}
+		
+		\begin{figure*}[htb]
+			\centering
+			\begin{subfigure}{.45\textwidth}
+				\hspace*{-2cm}\scalebox{0.8}{\input{"./figures/P_003_005.tex"}}
+				\caption{Path of two particles, with collisions}
+			\end{subfigure}
+			\begin{subfigure}{.45\textwidth}
+				\scalebox{0.6}{\input{"./figures/E_003_005.tex"}}
+				\caption{Total energy per particle of the two particles as the collisions happen}
+			\end{subfigure}
+			\caption{Energy drift of one particle with different values of time step $dt$}
+		\end{figure*}
+		
+		\begin{figure*}[htb]
+			\centering
+			\begin{subfigure}{.45\textwidth}
+				\hspace*{-2cm}\scalebox{0.8}{\input{"./figures/P_004_005.tex"}}
+				\caption{Path of two particles, with collisions}
+			\end{subfigure}
+			\begin{subfigure}{.45\textwidth}
+				\scalebox{0.6}{\input{"./figures/E_004_005.tex"}}
+				\caption{Total energy per particle of the two particles as the collisions happen}
+			\end{subfigure}
+			\caption{Energy drift of one particle with different values of time step $dt$}
+		\end{figure*}
+		
+		\begin{figure*}[htb]
+			\centering
+			\begin{subfigure}{.45\textwidth}
+				\hspace*{-2cm}\scalebox{0.8}{\input{"./figures/P_005_005.tex"}}
+				\caption{Path of two particles, with collisions}
+			\end{subfigure}
+			\begin{subfigure}{.45\textwidth}
+				\scalebox{0.6}{\input{"./figures/E_005_005.tex"}}
+				\caption{Total energy per particle of the two particles as the collisions happen}
+			\end{subfigure}
+			\caption{Energy drift of one particle with different values of time step $dt$}
+		\end{figure*}
+		
+		
+		\begin{figure*}[htb]
+			\centering
+			\begin{subfigure}{.45\textwidth}
+				\hspace*{-2.6cm}\scalebox{0.9}{\input{"./figures/P_002_200.tex"}}
+				\caption{Path of one particle in a system with 2 particles}
+			\end{subfigure}
+			\begin{subfigure}{.45\textwidth}
+				\hspace*{-2.6cm}\scalebox{0.9}{\input{"./figures/P_003_200.tex"}}
+				\caption{Path of one particle in a system with 3 particles}
+			\end{subfigure}
+			\begin{subfigure}{.45\textwidth}
+				\hspace*{-2.6cm}\scalebox{0.9}{\input{"./figures/P_010_200.tex"}}
+				\caption{Path of one particle in a system with 10 particles}
+			\end{subfigure}
+			\begin{subfigure}{.45\textwidth}
+				\hspace*{-2.6cm}\scalebox{0.9}{\input{"./figures/P_100_200.tex"}}
+				\caption{Path of one particle in a system with 100 particles}
+			\end{subfigure}
+			\caption{Path of one particle with different values of time step $dt$}
+		\end{figure*}
+	
+	
+		\begin{figure*}[htb]
+			\centering
+			\begin{subfigure}{.45\textwidth}
+				\scalebox{0.6}{\input{"./figures/K_010_00.tex"}}
+				\caption{Kinetic energy for 10 particles at the start and the average kinetic energy with the energy evenly distributed at the start}
+			\end{subfigure}
+			\begin{subfigure}{.45\textwidth}
+				\scalebox{0.6}{\input{"./figures/K_010_01.tex"}}
+				\caption{Kinetic energy for 10 particles at the start and the average kinetic energy with the all the energy given to one particle at the start}
+			\end{subfigure}
+			\begin{subfigure}{.45\textwidth}
+				\scalebox{0.6}{\input{"./figures/K_010_03.tex"}}
+				\caption{Kinetic energy for 10 particles at the start and the average kinetic energy with the energy evenly distributed among just 3 particles at the start}
+			\end{subfigure}
+			\caption{Path of one particle with different values of time step $dt$}
+		\end{figure*}
+		
+		In order to numerically calculate the probability distribution 100 particles was simulated in a box with lengths 50 over a time of 1000 and an EPP of 10, larger EPP is unstable over very long times.
+		\begin{figure*}
+			\centering
+			\scalebox{0.8}{\input{"./figures/MB.tex"}}
+			\caption{Probability distribution of velocity of one particle}
+		\end{figure*}
 	
 	\section{test cite}
 	
