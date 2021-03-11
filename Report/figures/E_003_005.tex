@@ -1,9 +1,5 @@
 % GNUPLOT: LaTeX picture with Postscript
 \begingroup
-  % Encoding inside the plot.  In the header of your document, this encoding
-  % should to defined, e.g., by using
-  % \usepackage[cp1252,<other encodings>]{inputenc}
-  \inputencoding{cp1252}%
   \makeatletter
   \providecommand\color[2][]{%
     \GenericError{(gnuplot) \space\space\space\@spaces}{%
@@ -109,7 +105,7 @@
     }%
     \gplgaddtomacro\gplfronttext{%
       \csname LTb\endcsname%%
-      \put(308,2541){\rotatebox{-270}{\makebox(0,0){\strut{}E}}}%
+      \put(209,2541){\rotatebox{-270}{\makebox(0,0){\strut{}E}}}%
       \put(3808,154){\makebox(0,0){\strut{}T}}%
       \put(3808,4709){\makebox(0,0){\strut{}Total energy per particle of 3 particles}}%
       \csname LTb\endcsname%%

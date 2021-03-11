@@ -1,9 +1,5 @@
 % GNUPLOT: LaTeX picture with Postscript
 \begingroup
-  % Encoding inside the plot.  In the header of your document, this encoding
-  % should to defined, e.g., by using
-  % \usepackage[cp1252,<other encodings>]{inputenc}
-  \inputencoding{cp1252}%
   \makeatletter
   \providecommand\color[2][]{%
     \GenericError{(gnuplot) \space\space\space\@spaces}{%
@@ -105,7 +101,7 @@
     }%
     \gplgaddtomacro\gplfronttext{%
       \csname LTb\endcsname%%
-      \put(1465,2541){\makebox(0,0){\strut{}y}}%
+      \put(1366,2541){\makebox(0,0){\strut{}y}}%
       \put(3896,154){\makebox(0,0){\strut{}x}}%
       \put(3896,4709){\makebox(0,0){\strut{}Trajectory of 5 particles}}%
     }%
