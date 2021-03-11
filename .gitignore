@@ -45,3 +45,4 @@
 *.run.xml
 
 verlet.py
+*gif
