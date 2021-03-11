@@ -1,15 +1,19 @@
 &PARAMETERS
-partNum = 10,        ! number of particles
+partNum = 100,        ! number of particles
 dt = 0.001,         ! time step
-time = 50.0			! total time
-LX = 10,            ! box size x direction
-LY = 10,            ! box size y direction
+time = 30.0			! total time
+LX = 50,            ! box size x direction
+LY = 50,            ! box size y direction
 KK = 6000,          ! Strength of repulsive wall force
 EPS = 1,            ! Strength of particle particle interaction
-EPP = 25,           ! Initial energy per particle when using random start locations, no kinetic energy will exceed this value.
-trace = 1,          ! Set 1 to get a dat file that plots the trajectory of particle number 1
+EPP = 0,           ! Initial energy per particle when using random start locations, no kinetic energy will exceed this value.
+trace = 0,          ! Set 1 to get a dat file that plots the trajectory of particle number 1
 animate = 1,        ! Set 1 to get a dat file friendly to animation using gnuplot
-totE = 1,           ! Set 1 to get a dat file with the total energy
-allK = 0,           ! Set 1 to get a dat file with the kinetic energy of all particles individually
-calibrate = 0       ! Set to 1 to be able to manually change the intitial conditions
+totE = 0,           ! Set 1 to get a dat file with the total energy
+avgK = 0,           ! Set 1 to get a dat file with the time average kinetic energy of each particle
+calibrate = 1,      ! Set to 1 to be able to manually change the intitial conditions
+totalrand = 1,      ! Set to get random seed
+distr = 0,          ! Number of particles that the initial energy is distributed amongst, set to 0 to distribute to all particles.
+maxBoltz = 0,       ! Numerically calculate the probability distribution
+hcp = 1             ! Set to 1 to get 19 particles in a hexagonal packing, this overrides several inputs.
 /

@@ -8,13 +8,16 @@ program verlet
         implicit none
 
         ! --- Setting variables
-        Integer                         ::  i, j, k, partNum, steps, LX, LY, seed, initT
+        Integer                         ::  i, j, k, partNum, steps, LX, LY, seed, initT, distr,&
+                                            check, ind, prec, tempI, hcp
         Real(wp)                        ::  start, finish, dt, KK, EPS, time, Kinetic, potential,&
-                                            rij, rijsqr, dvdr, aa, EPP, fps
+                                            rij, rijsqr, dvdr, aa, EPP, fps, substart, subfinish,&
+                                            vel, temp, extra
         Real(wp), allocatable           ::  x(:), y(:), vx(:), vy(:), ax(:), ay(:), history(:,:),&
-                                            energy(:,:), kineticPP(:,:)
-        character(len=4)                ::  num
-        character(len=2)                ::  num2
+                                            energy(:,:), kineticPP(:,:), velocityOne(:), velDist(:,:)
+        character(len=4)                ::  charDT
+        character(len=3)                ::  charPartNum, charTime
+        character(len=2)                ::  charDistr, charEPP
 
         !--- Initiating the time counter for the entire program
         write(*,*) 'Program starting!'
@@ -35,7 +38,10 @@ program verlet
         write(*,*) 'Animate: ', param%animate
         write(*,*) 'Trace: ', param%trace
         write(*,*) 'totE: ', param%totE
-        write(*,*) 'allK: ', param%allK
+        write(*,*) 'avgK: ', param%avgK
+        write(*,*) 'totalrand: ', param%totalrand
+        write(*,*) 'distr: ', param%distr
+        write(*,*) 'hcp: ', param%hcp
         write(*,*) 'Constants:'
         write(*,*) 'pi', pi
         ! --- Set the parameters to variable names so they are easier to write.
@@ -47,29 +53,35 @@ program verlet
         EPS = param%EPS
         EPP = param%EPP
         time = param%time
+        distr = param%distr
+        hcp = param%hcp
+        if (hcp == 1) then
+            partNum = 19
+            LX = 10
+            LY = 10
+        end if
         ! --- Set seed for random numbers if the seed is initT the seed is set from the system clock,
         ! --- this will make it so that the random numbers are different each run, if the seed is fixed
         ! --- the random numbers will be the same each run. This is good for calibration.
         call system_clock(initT)
         seed = initT
-        seed = 48154
-        print *, 'seed:', initT
+        if (param%totalrand == 0) then
+            seed = 18467
+        end if
+        print *, 'seed:', seed
         call srand(seed)
-        ! --- Test ---
 
-        ! --- Test random, this prints some random numbers they should be between 0 and 10
-        do i = 1, 10
-            print *, rand()*10
-        end do
         ! --- Initialize variables
-        ! --- fps will determine how often the data for the trajectory will be recorded higher number means more data is recorded
-        fps = 50
+        ! --- fps will determine how often the data for the trajectory will be recorded
+        ! --- higher number means more data is recorded
+        fps = 40
         steps = int((time/dt)+0.1)
         print *, 'steps: ', steps
         print *, 'FPS: ', fps
         ! --- Animation constant is calculated from the fps if the constant is 1 all the steps are recorded,
         ! --- if the constant is for instance 10 then frames 1, 11, 21.... will be recorded.
         print *, 'animation constant: ', steps/(fps*time)
+        print *, 'animation frames: ', fps*time
         ! --- Allocate arrays
         allocate(x(partNum))
         allocate(y(partNum))
@@ -80,26 +92,66 @@ program verlet
         allocate(history(2*partNum,steps))
         allocate(energy(2,steps))
         allocate(kineticPP(partNum,steps))
+        allocate(velocityOne(steps))
 
         ! --- initialize all particles with zeroes
-        x(:) = 0
-        y(:) = 0
-        ax(:) = 0
-        ay(:) = 0
-        vx(:) = 0
-        vy(:) = 0
+        x(:) = 0.0
+        y(:) = 0.0
+        ax(:) = 0.0
+        ay(:) = 0.0
+        vx(:) = 0.0
+        vy(:) = 0.0
         history(:,:) = 0.0
         kineticPP(:,:) = 0.0
         ! --- initialize particles
-        call initialize(x,y,vx,vy)
+        if (hcp .ne. 1) then
+            call initialize(x,y,vx,vy)
+        end if
+
+        ! -----------
+        ! --- HCP ---
+        ! -----------
+
+        if (hcp == 1) then
+            do i = 1, 5
+                x(i) = i+2
+                y(i) = 5
+            end do
+            do i = 6, 12, 2
+                x(i) = (i/2)+0.5
+                x(i+1) = (i/2)+0.5
+                y(i) = 5 + sqrt(3.0)/2
+                y(i+1) = 5 - sqrt(3.0)/2
+            end do
+            do i = 14, 18, 2
+                x(i) = (i/2)-3
+                x(i+1) = (i/2)-3
+                y(i) = 5 + sqrt(3.0)
+                y(i+1) = 5 - sqrt(3.0)
+            end do
+            do i = 1, partNum
+                vel = sqrt(2*EPP)
+                vx(i) = rand()*2*vel-vel
+                vy(i) = (int(rand()*2)*2-1)*sqrt(2*EPP-vx(i)**2)
+            end do
+            open(1, file = './data/solidInit.dat')
+            do i = 1, partNum
+                write(1,*) x(i), y(i)
+            end do
+            close(1)
+        end if
+
+        do i = 1, partNum
+            write(*,*) vx(i), vy(i)
+        end do
 
         ! ----------------------
         ! --- Calibrate Mode ---
         ! ----------------------
         if (param%calibrate == 1) then
             if (partNum == 1) then
-                x(1) = 1
-                y(1) = 2
+                x(1) = 1.5
+                y(1) = 2.5
                 vx(1) = 10
                 vy(1) = -5
             end if
@@ -117,41 +169,46 @@ program verlet
             do i = 1, partNum
                 write(1,*) x(i), y(i)
             end do
+            write(1,*)
+            write(1,*)
+            write(1,*) LX, LY
             close(1)
         end if
 
-        print *, 'Initializing...'
-        print *, 'Start values:'
-        print *, 'Position:', x, y
-        print *, 'Velocity:', vx, vy
-        print *, 'Acceleration:', ax, ay
-        print *, ''
-
         ! --- Create strings to put in the title of the output files
-        write(num,100) int((time/steps)*1000)
+        print *, 'OUTPUT TITLE CREATION:'
+        write(charDT,100) int((time/steps)*1000+0.1)
         100 format(I4.4)
-        write(num2,50) partNum
-        50 format(I2.2)
-        write(*,*) num
-        write(*,*) num2
-        ! --- test ground
-!    test(1) = 1
-!    test(2) = 2
-!    print *, 'test'
-!    print *, test(:)
-!    test(:) = test(:) * 2
-!    print *, test(:)
-!    print *, 'test over'
+        write(charPartNum,110) partNum
+        110 format(I3.3)
+        write(charTime,120) int(time+0.1)
+        120 format(I3.3)
+        write(charDistr,130) distr
+        130 format(I2.2)
+        write(charEPP,140) int(EPP*10)
+        140 format(I2.2)
+        write(*,*) 'dt: ', charDT
+        write(*,*) 'particles: ', charPartNum
+        write(*,*) 'time: ', charTime
+        write(*,*) 'distr: ', charDistr
+        write(*,*) 'EPP: ', charEPP
 
-        ! ------------------
-        ! --- Simulation ---
-        ! ------------------
+        ! ------------------------
+        ! --- Simulation Start ---
+        ! ------------------------
+        call cpu_time(substart)
         do i = 1, steps
             x(:) = x(:) + vx(:) * dt + (ax(:) * dt**2)/2
             y(:) = y(:) + vy(:) * dt + (ay(:) * dt**2)/2
             ! --- update the velocities with acceleration at t
             vx(:) = vx(:) + (ax(:)*dt)/2
             vy(:) = vy(:) + (ay(:)*dt)/2
+            velocityOne(i) = vx(1)
+
+!            if (hcp == 1 .and. modulo(i,steps/10) == 0) then
+!                vx(:) = vx(:)*1.1
+!                vy(:) = vy(:)*1.1
+!            end if
 
             ax(:) = 0
             ay(:) = 0
@@ -207,43 +264,134 @@ program verlet
             energy(2,i) = (kinetic + potential)/partNum
         end do
 
-        if (param%trace == 1) then
-            open(1, file = './data/P_'//num2//'_' //num// '.dat')
-            do i = 1, steps
-                if (modulo(i,int(steps/(fps*time))) == 1 .or. int(steps/(fps*time)) == 1) then
-                    write(1,*) history(:,i)
-                end if
+        ! ----------------------
+        ! --- Simulation end ---
+        ! ----------------------
+        call cpu_time(subfinish)
+        write(*,*) 'Simulation time =', int(subfinish - substart)/60, 'minutes and', mod(subfinish-substart,60.0), 'seconds.'
+
+        write(*,*) '---------------------------'
+        write(*,*) 'Kinetic energy distribution'
+        print *, 'particle',0,'Initial',0,'Time Average'
+        do i = 1, partNum
+            print *, i, kineticPP(i,1), sum(kineticPP(i,:))/steps
+        end do
+        write(*,*) 'Energy per particle'
+        write(*,*) energy(2,steps)
+        write(*,*) 'Energy Drift'
+        write(*,*) (energy(2,steps)-energy(2,1))/energy(2,1)
+
+        if (param%maxBoltz == 1) then
+            prec = 1
+            print *, maxval(velocityOne), minval(velocityOne)
+            print *, floor(minval(velocityOne)*prec), floor(maxval(velocityOne)*prec)
+            print *, floor(maxval(velocityOne)*prec) - floor(minval(velocityOne)*prec)+1
+            print *, floor(minval(velocityOne)*prec) + abs(floor(minval(velocityOne)*prec))+1,&
+                     floor(maxval(velocityOne)*prec) + abs(floor(minval(velocityOne)*prec))+1
+
+            ind = floor(maxval(velocityOne)*prec) + abs(floor(minval(velocityOne)*prec))+1
+            print *, ind
+            allocate(velDist(ind,2))
+            velDist(:,2) = 0.0
+            print *, 'test61'
+            do i = 1, ind
+                velDist(i,1) = (i - float(abs(floor(minval(velocityOne)))*prec)-1)/prec
             end do
+            extra = abs(floor(minval(velocityOne)*prec))+1
+            do i = 1, steps
+                tempI = floor(velocityOne(i)*prec)+extra
+                velDist(tempI,2) = velDist(tempI,2) + 1
+            end do
+            open(1, file = './data/MB.dat')
+            do i = 1, ind
+                write(1,*) velDist(i,1), velDist(i,2)/steps
+            end do
+            write(1,*)
+            write(1,*)
+            write(1,*) sum(kineticPP(1,:))/steps
             close(1)
+            deallocate(velDist)
+        end if
+
+
+        ! --------------------
+        ! --- Output Block ---
+        ! --------------------
+
+        if (param%trace == 1) then
+            if (partNum == 1) then
+                open(1, file = './data/P_'//charPartNum//'_' //charDT// '.dat')
+                do i = 1, steps
+                    if (modulo(i,int(steps/(fps*time))) == 1 .or. int(steps/(fps*time)) == 1) then
+                        write(1,*) history(:,i)
+                    end if
+                end do
+                write(1,*)
+                write(1,*)
+                write(1,*) LX, LY
+                close(1)
+            elseif (partNum > 1) then
+                open(1, file = './data/P_'//charPartNum//'_' //charTime// '.dat')
+                do i = 1, steps
+                    if (modulo(i,int(steps/(fps*time))) == 1 .or. int(steps/(fps*time)) == 1) then
+                        write(1,*) history(:,i)
+                    end if
+                end do
+                write(1,*)
+                write(1,*)
+                write(1,*) LX, LY
+                close(1)
+            end if
         end if
 
         if (param%animate == 1) then
             open(1, file = './data/animate.dat')
+            temp = sum(kineticPP(:,:))/(partNum*steps)
             do i = 1, steps
                 if (modulo(i,int(steps/(fps*time))) == 1 .or. int(steps/(fps*time)) == 1) then
                     do j = 1, partNum
-                        write(1,*) history(j*2-1,i), history(j*2,i)
+                        write(1,*) history(j*2-1,i), history(j*2,i), sum(kineticPP(:,i))/partNum, energy(2,i), temp
                     end do
                     write(1,*)
                     write(1,*)
                 end if
             end do
+            write(1,*) LX, LY
             close(1)
         end if
 
         if (param%totE == 1) then
-            open(1, file = './data/E_'//num2//'_'//num//'.dat')
-            do i = 1, steps
-                write(1,*) energy(1,i), energy(2,i)
-            end do
+            if (partNum == 1) then
+                open(1, file = './data/E_'//charPartNum//'_'//charDT//'.dat')
+                do i = 1, steps
+                    write(1,*) energy(1,i), energy(2,i)
+                end do
+                close(1)
+            elseif (partNum > 1) then
+                open(1, file = './data/E_'//charPartNum//'_'//charTime//'.dat')
+                do i = 1, steps
+                    write(1,*) energy(1,i), energy(2,i)
+                end do
+                close(1)
+            end if
+        end if
+
+        if (param%avgK == 1) then
+            open(1, file = './data/K_'//charPartNum//'_'//charDistr//'.dat')
+                do i = 1, partNum
+                    write(1,*) i+0.2, sum(kineticPP(i,:))/steps, i-0.2, kineticPP(i,1)
+                end do
             close(1)
         end if
 
-        if (param%allK == 1) then
-            open(1, file = './data/K_'//num2//'_'//num//'.dat')
-                do i = 1, steps
-                    write(1,*) energy(1,i), kineticPP(:,i)
-                end do
+
+        ! --- HCP Output ---
+
+        if (hcp == 1) then
+            open(1, file = './data/solid_end_'//charEPP//'.dat')
+            do i = 1, partNum
+                write(1,*) history(i*2-1,steps), history(i*2,steps)
+            end do
             close(1)
         end if
 
@@ -258,6 +406,8 @@ program verlet
         deallocate(history)
         deallocate(energy)
         deallocate(kineticPP)
+        deallocate(velocityOne)
+
         ! --- Get final time
         call cpu_time(finish)
 

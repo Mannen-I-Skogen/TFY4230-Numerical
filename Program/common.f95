@@ -17,7 +17,8 @@ Module common
    ! --- This is the container for the simulation parameters ---
    ! -----------------------------------------------------------
 
-     Integer :: partNum, LX, LY, animate, trace, totE, allK, calibrate
+     Integer :: partNum, LX, LY, animate, trace, totE,&
+                avgK, calibrate, totalrand, distr, maxBoltz, hcp
      Real(wp) :: pi, dt, KK, EPS, EPP, time
 
   end Type Parameter_Container
