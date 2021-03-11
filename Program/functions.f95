@@ -37,7 +37,7 @@ Module functions
                 x(2) = rand()*param%LX
                 y(2) = rand()*param%LY
                 vx(2) = rand()*2*vel-vel
-                vy(2) = (int(rand()*2)*2-1)*sqrt(2*param%EPP-vx(1)**2)
+                vy(2) = (int(rand()*2)*2-1)*sqrt(2*param%EPP-vx(2)**2)
             end if
         end if
 
