@@ -18,7 +18,7 @@ set xrange [-2:12]
 set yrange [-2:12]
 
 
-plot './data/solidInit.dat' index 0 using 1:2 with points pt 6 ps 8 lc rgb '#ff0000' notitle
+plot './data/solidInit.dat' index 0 using 1:2 with points pt 6 ps 4 lc rgb '#ff0000' notitle
 
 set terminal epslatex color
 set output "../Report/figures/solidInit.tex"
@@ -33,7 +33,7 @@ set xlabel 'x'
 set ylabel 'y' rotate by 0
 
 
-plot './data/solid_end_10.dat' index 0 using 1:2 with points pt 6 ps 8 lc rgb '#ff0000' notitle
+plot './data/solid_end_10.dat' index 0 using 1:2 with points pt 6 ps 4 lc rgb '#ff0000' notitle
 
 set terminal epslatex color
 set output "../Report/figures/solid_end_10.tex"
@@ -48,7 +48,7 @@ set xlabel 'x'
 set ylabel 'y' rotate by 0
 
 
-plot './data/solid_end_15.dat' index 0 using 1:2 with points pt 6 ps 8 lc rgb '#ff0000' notitle
+plot './data/solid_end_15.dat' index 0 using 1:2 with points pt 6 ps 4 lc rgb '#ff0000' notitle
 
 set terminal epslatex color
 set output "../Report/figures/solid_end_15.tex"
@@ -63,7 +63,7 @@ set xlabel 'x'
 set ylabel 'y' rotate by 0
 
 
-plot './data/solid_end_20.dat' index 0 using 1:2 with points pt 6 ps 8 lc rgb '#ff0000' notitle
+plot './data/solid_end_20.dat' index 0 using 1:2 with points pt 6 ps 4 lc rgb '#ff0000' notitle
 
 set terminal epslatex color
 set output "../Report/figures/solid_end_20.tex"
@@ -78,7 +78,7 @@ set xlabel 'x'
 set ylabel 'y' rotate by 0
 
 
-plot './data/solid_end_24.dat' index 0 using 1:2 with points pt 6 ps 8 lc rgb '#ff0000' notitle
+plot './data/solid_end_24.dat' index 0 using 1:2 with points pt 6 ps 4 lc rgb '#ff0000' notitle
 
 set terminal epslatex color
 set output "../Report/figures/solid_end_24.tex"
@@ -93,7 +93,7 @@ set xlabel 'x'
 set ylabel 'y' rotate by 0
 
 
-plot './data/solid_end_05.dat' index 0 using 1:2 with points pt 6 ps 8 lc rgb '#ff0000' notitle
+plot './data/solid_end_05.dat' index 0 using 1:2 with points pt 6 ps 4 lc rgb '#ff0000' notitle
 
 set terminal epslatex color
 set output "../Report/figures/solid_end_05.tex"

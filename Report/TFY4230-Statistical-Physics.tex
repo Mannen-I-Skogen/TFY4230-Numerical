@@ -50,8 +50,8 @@
 
 \preprint{APS/123-QED}
 
-\title{Some tediously specific title:\\with Forced Linebreak}% Force line breaks with \\
-\thanks{A footnote to the article title}%
+\title{Exploration of particles in confined spaces:\\using numerical methods}% Force line breaks with \\
+%\thanks{A footnote to the article title}%
 
 \author{Stian S. Johannessen}
  \homepage{https://folk.ntnu.no/stiansjo}
@@ -60,7 +60,7 @@
 \date{\today}
 
 \begin{abstract}
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu felis bibendum ut tristique et. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Ac orci phasellus egestas tellus rutrum. Cras sed felis eget velit aliquet sagittis id consectetur purus.
+	The goal of this project is to explore numerically how gasses behave and how it might relate to statistical mechanics.
 \end{abstract}
 
 \maketitle
@@ -102,9 +102,11 @@
 				Kx_i	&	\text{if } x < 0
 			\end{cases}
 		\end{align}
-		with the same in the $y$ direction. We also choose the mass $m=1$ so the force becomes equal to the acceleration. This is also done to simplify the implementation.
+		with the same in the $y$ direction. We also choose the mass $m=1$ so the force becomes equal to the acceleration. This is also done to simplify the implementation. The program is written in fortran and the different states and simulations are set by editing an input file, the results should be able to be recreated by using the same inputs.
+	
+	
 	\section{one particle}
-		
+		In order to simulate a gas first the system must be calibrated to one particle. First we can run different simulations with different time-steps to see how the particles behave. The box size is $10\times10$, the time is set to 10.
 	\begin{figure*}[htb]
 		\centering
 		\begin{subfigure}{.45\textwidth}
@@ -117,39 +119,41 @@
 		\end{subfigure}
 		\begin{subfigure}{.45\textwidth}
 			\hspace*{-2.6cm}\scalebox{0.9}{\input{"./figures/P_001_0010.tex"}}
-			\caption{Path of one particle with $\Delta t=0.010$}
+			\caption{Path of one particle with $\Delta t=0.01$}
 		\end{subfigure}
 		\begin{subfigure}{.45\textwidth}
 			\hspace*{-2.6cm}\scalebox{0.9}{\input{"./figures/P_001_0020.tex"}}
-			\caption{Path of one particle with $\Delta t=0.020$}
+			\caption{Path of one particle with $\Delta t=0.02$}
 		\end{subfigure}
-		\caption{Path of one particle with different values of time step $dt$}
+		\caption{\label{fig:path}Path of one particle with different values of time step $\Delta t$ the wall constant $K=6000$}
 	\end{figure*}
-	
+	In figure \ref{fig:path} the paths of 4 particles is traced over the same time but with different time steps, here we can see that a time step of $\Delta t = 0.01$ gives a decent trajectory. Time-steps above this results in a deteriorated path.
 	\begin{figure*}[htb]
 		\centering
 		\begin{subfigure}{.45\textwidth}
 			\scalebox{0.6}{\input{"./figures/E_001_0001.tex"}}
-			\caption{Energy drift with $\Delta t=0.001$}
+			\caption{Energy drift of one particle with $\Delta t=0.001$}
 		\end{subfigure}
 		\begin{subfigure}{.45\textwidth}
 			\scalebox{0.6}{\input{"./figures/E_001_0005.tex"}}
-			\caption{Energy drift with $\Delta t=0.005$}
+			\caption{Energy drift of one particle with $\Delta t=0.005$}
 		\end{subfigure}
 		\begin{subfigure}{.45\textwidth}
 			\scalebox{0.6}{\input{"./figures/E_001_0010.tex"}}
-			\caption{Energy drift with $\Delta t=0.010$}
+			\caption{Energy drift of one particle with $\Delta t=0.01$}
 		\end{subfigure}
 		\begin{subfigure}{.45\textwidth}
 			\scalebox{0.6}{\input{"./figures/E_001_0020.tex"}}
-			\caption{Energy drift with $\Delta t=0.020$}
+			\caption{Energy drift of one particle with $\Delta t=0.02$}
 		\end{subfigure}
-		\caption{Energy drift of one particle with different values of time step $dt$}
+		\caption{\label{energy-timestep}Energy drift of one particle with different values of time step $dt$, the initial energy is set to 40}
 	\end{figure*}
+	In figure \ref{energy-timestep} the different energies for the paths in figure \ref{fig:path} is plotted over time. Here we can also see that the energy drift with a time-step of $\Delta t = 0.01$ is not too bad, this is thus a candidate for the highest time-step that gives a stable simulation.
+	
 	
 	\section{Multiple particles}
 	
-		For all the simulations beyond 1 particle the time step $\Delta t =0.001$, this is because of the stability it provides and the short run time for even very large systems, in tests of time at 40 and particles above 100 the run time does not exceed a few seconds. In the case of two particles the start positions and velocities are chosen, but in larger systems this is done randomly with the velocities such that each particle starts with a kinetic energy of the EPP value. The box size is also increased to $40\times40$
+		For all the simulations beyond 1 particle the time step is set to $\Delta t =0.001$, this is because of the stability it provides and the short run time for even very large systems, in tests of time at 40 and particles above 100 the run time does not exceed a few seconds. In the case of two particles the start positions and velocities are chosen, but in larger systems this is done randomly with the velocities such that each particle starts with a kinetic energy of the EPP value. The box size is also increased to $40\times40$. Before we can simulate gases we check that the system handles collisions of particles. The EPP value is set to 30.
 		\begin{figure*}[htb]
 			\centering
 			\begin{subfigure}{.45\textwidth}
@@ -160,48 +164,48 @@
 				\scalebox{0.6}{\input{"./figures/E_002_005.tex"}}
 				\caption{Total energy per particle of the two particles as the collisions happen}
 			\end{subfigure}
-			\caption{Energy drift of one particle with different values of time step $dt$}
+			\caption{\label{two-collide}Five particles over a short time scale}
 		\end{figure*}
 		
 		\begin{figure*}[htb]
 			\centering
 			\begin{subfigure}{.45\textwidth}
 				\hspace*{-2cm}\scalebox{0.8}{\input{"./figures/P_003_005.tex"}}
-				\caption{Path of two particles, with collisions}
+				\caption{Path of three particles, with collisions}
 			\end{subfigure}
 			\begin{subfigure}{.45\textwidth}
 				\scalebox{0.6}{\input{"./figures/E_003_005.tex"}}
-				\caption{Total energy per particle of the two particles as the collisions happen}
+				\caption{Total energy per particle of the three particles as the collisions happen}
 			\end{subfigure}
-			\caption{Energy drift of one particle with different values of time step $dt$}
+			\caption{\label{three-collide}Five particles over a short time scale}
 		\end{figure*}
 		
 		\begin{figure*}[htb]
 			\centering
 			\begin{subfigure}{.45\textwidth}
 				\hspace*{-2cm}\scalebox{0.8}{\input{"./figures/P_004_005.tex"}}
-				\caption{Path of two particles, with collisions}
+				\caption{Path of four particles, with collisions}
 			\end{subfigure}
 			\begin{subfigure}{.45\textwidth}
 				\scalebox{0.6}{\input{"./figures/E_004_005.tex"}}
-				\caption{Total energy per particle of the two particles as the collisions happen}
+				\caption{Total energy per particle of the four particles as the collisions happen}
 			\end{subfigure}
-			\caption{Energy drift of one particle with different values of time step $dt$}
+			\caption{\label{four-collide}Five particles over a short time scale}
 		\end{figure*}
 		
 		\begin{figure*}[htb]
 			\centering
 			\begin{subfigure}{.45\textwidth}
 				\hspace*{-2cm}\scalebox{0.8}{\input{"./figures/P_005_005.tex"}}
-				\caption{Path of two particles, with collisions}
+				\caption{Path of five particles, with collisions}
 			\end{subfigure}
 			\begin{subfigure}{.45\textwidth}
 				\scalebox{0.6}{\input{"./figures/E_005_005.tex"}}
-				\caption{Total energy per particle of the two particles as the collisions happen}
+				\caption{Total energy per particle of the five particles as the collisions happen}
 			\end{subfigure}
-			\caption{Energy drift of one particle with different values of time step $dt$}
+			\caption{\label{five-collide}Five particles over a short time scale}
 		\end{figure*}
-		
+		In figures \ref{two-collide}, \ref{three-collide}, \ref{four-collide} and \ref{five-collide} paths and energy drift as collisions happen is plotted. As we can see, the energy is very well conserved over short time spans. So we can pretty confidently expand the system. We now expand the box to $50\times50$ and the time to 200.
 		
 		\begin{figure*}[htb]
 			\centering
@@ -221,10 +225,12 @@
 				\hspace*{-2.6cm}\scalebox{0.9}{\input{"./figures/P_100_200.tex"}}
 				\caption{Path of one particle in a system with 100 particles}
 			\end{subfigure}
-			\caption{Path of one particle with different values of time step $dt$}
+			\caption{\label{path-one-in-large}Path of one particle in large system}
 		\end{figure*}
-	
-	
+		In figure \ref{path-one-in-large} the path of one particle is plotted as it explores the box. This might suggest that in gasses with low density the particles eventually explores all of the box. 
+		
+		In order to find out how the energy of the particles is distributed over time, all the energy might be given to a chosen number of particles by editing the "distr" parameter in the input file of the program. A system of $50\times50$ is chosen with 10 particles and the system is let go for a long time.
+			
 		\begin{figure*}[htb]
 			\centering
 			\begin{subfigure}{.45\textwidth}
@@ -239,26 +245,61 @@
 				\scalebox{0.6}{\input{"./figures/K_010_03.tex"}}
 				\caption{Kinetic energy for 10 particles at the start and the average kinetic energy with the energy evenly distributed among just 3 particles at the start}
 			\end{subfigure}
-			\caption{Path of one particle with different values of time step $dt$}
+			\caption{\label{energy-distr}Path of one particle with different values of time step $dt$}
 		\end{figure*}
+		in figure \ref{energy-distr} the energy is plotted as it is distributed among the particles, an animation of this can also be seen at \href{https://folk.ntnu.no/stiansjo/10_Particles_1_moving.gif}{this link} 
 		
-		In order to numerically calculate the probability distribution 100 particles was simulated in a box with lengths 50 over a time of 1000 and an EPP of 10, larger EPP is unstable over very long times.
+		In order to numerically calculate the probability distribution, 100 particles was simulated in a box with lengths 50 over a time of 1000 and an EPP of 10, larger EPP is unstable over very long times.
 		\begin{figure*}
 			\centering
 			\scalebox{0.8}{\input{"./figures/MB.tex"}}
-			\caption{Probability distribution of velocity of one particle}
+			\caption{\label{MB}Probability distribution of velocity of one particle}
 		\end{figure*}
+		In figure \ref{MB} the numerical and theoretical probability distributing is plotted for velocity in the x direction
+		
+		
+	\section{Solids}
+	We now want to explore how the system behaves when the kinetic energy is close to $\epsilon$ this is done by setting the EPP to around 1 and the hcp parameter to 1 to override most of the other parameters. The initial case is 19 particles in an hexagonal pattern.
+	\begin{figure*}
+		\centering
+		\scalebox{0.7}{\input{"./figures/solidInit.tex"}}
+		\caption{\label{solid-init}The initial state of the solid, 19 particles packed in a hexagonal formation.}
+	\end{figure*}
+	The initial state is shown in figure \ref{solid-init}.
+	\begin{figure*}[htb]
+		\centering
+		\begin{subfigure}{.45\textwidth}
+			\hspace*{-2.6cm}\scalebox{0.9}{\input{"./figures/solid_end_05.tex"}}
+			\caption{The state of a solid after time evolution with an initial kinetic energy of 0.5}
+		\end{subfigure}
+		\begin{subfigure}{.45\textwidth}
+			\hspace*{-2.6cm}\scalebox{0.9}{\input{"./figures/solid_end_10.tex"}}
+			\caption{The state of a solid after time evolution with an initial kinetic energy of 1.0}
+		\end{subfigure}
+		\begin{subfigure}{.45\textwidth}
+			\hspace*{-2.6cm}\scalebox{0.9}{\input{"./figures/solid_end_20.tex"}}
+			\caption{The state of a solid after time evolution with an initial kinetic energy of 2.0}
+		\end{subfigure}
+		\begin{subfigure}{.45\textwidth}
+			\hspace*{-2.6cm}\scalebox{0.9}{\input{"./figures/solid_end_24.tex"}}
+			\caption{\label{solid-24}The state of a solid after time evolution with an initial kinetic energy of 2.4}
+		\end{subfigure}
+		\caption{\label{solid-end}Path of one particle with different values of time step $dt$}
+	\end{figure*}
+	In figure \ref{solid-end} the end state with different initial energies i shown, in figure \ref{solid-24} the initial energy is chosen such that the total energy is around 0. 
 	
-	\section{test cite}
-	
-		This is a cite to \citep{Agarwal2001}
-	
-	
+	\begin{acknowledgments}
+		The author would like to thank Mathilde Hirsum and Paul Gunnar Dommersnes for answering all questions raised during the implementation of the program.
+	\end{acknowledgments}
 	\appendix
 	
 		\section{Source code}
 		
 			The source code may have been given to you along with this text, if it wasnt the source code along with the source for this text and raw data can be found at \href{https://github.com/Mannen-I-Skogen/TFY4230-Numerical}{this link}
+			
+		\section{Animations}
+		
+			Some of the systems in this text are animated and can be found \href{https://folk.ntnu.no/stiansjo/particles}{Here}
 	
 	\bibliography{TFY4230-Statistical-Physics}
 
